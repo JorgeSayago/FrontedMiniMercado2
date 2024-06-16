@@ -12,13 +12,15 @@ import { CabeceraComponent } from './cabecera/cabecera.component';
 import { PiePaginaComponent } from './pie-pagina/pie-pagina.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { LoginComponent } from './Page/login/login.component';
+import { ProductoComponent } from './Page/producto/producto.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CabeceraComponent,
     PiePaginaComponent,
-    LoginComponent
+    LoginComponent,
+    ProductoComponent
   ],
   imports: [
     BrowserModule,
