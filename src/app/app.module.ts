@@ -14,7 +14,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { LoginComponent } from './Page/login/login.component';
 import { ProductoComponent } from './Page/producto/producto.component';
 import { MenuComponent } from './menu/menu.component';
-import { CrearClienteComponent } from './crear-cliente/crear-cliente.component';
+import { CrearClienteComponent } from './Page/crear-cliente/crear-cliente.component';
 
 @NgModule({
   declarations: [

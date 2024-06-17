@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Cliente } from '../../Domain/cliente';
 
 @Component({
   selector: 'app-crear-cliente',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class CrearClienteComponent {
 
+  cliente: Cliente = new Cliente();
+
+
+  guardar(){
+    
+  }
 }
