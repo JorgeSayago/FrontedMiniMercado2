@@ -1,6 +1,6 @@
-<div class="login-container">
+<div id="contact">
     <mat-card>
-      <mat-card-title>Iniciar Sesión</mat-card-title>
+      <mat-card-title>Crear Producto</mat-card-title>
       <mat-card-content>
         <form>
           <mat-form-field appearance="fill">
@@ -15,10 +15,12 @@
             <mat-label>Categoria</mat-label>
             <input matInput [(ngModel)]="producto.categoria" name="categoria" type="text" required>
           </mat-form-field>
-          <mat-form-field appearance="fill">
-            <mat-label>Stock</mat-label>
-            <input matInput [(ngModel)]="producto.stock" name="Stock" type="number" required>
+
+          <mat-form-field class="form-field">
+            <mat-label>Stock:</mat-label>
+            <input matInput type="number" name="Stock" placeholder="stock del producto" [(ngModel)]="producto.stock">
           </mat-form-field>
+
           <button mat-raised-button color="primary" (click)="guardar()">Crear</button>
         </form>
       </mat-card-content>
