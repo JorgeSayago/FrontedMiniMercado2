@@ -1,1 +1,26 @@
-<p>producto works!</p>
+<div class="login-container">
+    <mat-card>
+      <mat-card-title>Iniciar Sesión</mat-card-title>
+      <mat-card-content>
+        <form>
+          <mat-form-field appearance="fill">
+            <mat-label>nombre</mat-label>
+            <input matInput [(ngModel)]="producto.nombre" name="nombre del producto" type="text" required>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Descripcion</mat-label>
+            <input matInput [(ngModel)]="producto.descripcion" name="descripcion del producto" type="text" required>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Categoria</mat-label>
+            <input matInput [(ngModel)]="producto.categoria" name="categoria" type="text" required>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Stock</mat-label>
+            <input matInput [(ngModel)]="producto.stock" name="Stock" type="number" required>
+          </mat-form-field>
+          <button mat-raised-button color="primary" (click)="guardar()">Crear</button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>

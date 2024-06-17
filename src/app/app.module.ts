@@ -13,6 +13,7 @@ import { PiePaginaComponent } from './pie-pagina/pie-pagina.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { LoginComponent } from './Page/login/login.component';
 import { ProductoComponent } from './Page/producto/producto.component';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ProductoComponent } from './Page/producto/producto.component';
     CabeceraComponent,
     PiePaginaComponent,
     LoginComponent,
-    ProductoComponent
+    ProductoComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,

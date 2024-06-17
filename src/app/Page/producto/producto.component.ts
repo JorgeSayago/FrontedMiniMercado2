@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Producto } from '../../Domain/producto';
 
 @Component({
   selector: 'app-producto',
@@ -7,4 +8,8 @@ import { Component } from '@angular/core';
 })
 export class ProductoComponent {
 
+  producto: Producto = new Producto();
+
+  guardar(){
+  }
 }

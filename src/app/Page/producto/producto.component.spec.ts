@@ -1,10 +1,12 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProductoComponent } from './producto.component';
+import { Producto } from '../../Domain/producto';
 
 describe('ProductoComponent', () => {
   let component: ProductoComponent;
   let fixture: ComponentFixture<ProductoComponent>;
+
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
