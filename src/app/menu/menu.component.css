@@ -20,3 +20,6 @@
     color: #333;
     background-color: #fff;
   }
+  .menu li.right {
+    margin-left: auto; /* Mueve el último elemento al extremo derecho */
+}
