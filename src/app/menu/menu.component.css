@@ -1,25 +1,31 @@
 .menu {
-    background-color: #808080;
-    padding: 10px;
-  } 
-  .menu ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  } 
-  .menu li {
-    display: inline-block;
-    margin-right: 10px;
-  }  
-  .menu li a {
-    text-decoration: none;
-    color: #fff;
-    padding: 5px;
-  } 
-  .menu li a:hover {
-    color: #333;
-    background-color: #fff;
-  }
-  .menu li.right {
-    margin-left: auto; /* Mueve el último elemento al extremo derecho */
+  background-color: #808080;
+  padding: 10px;
+}
+
+.menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex; /* Cambiamos a Flexbox para el contenedor ul */
+}
+
+.menu li {
+  display: inline-block; /* Mantenemos inline-block para la apariencia */
+  margin-right: 10px;
+}
+
+.menu li.right {
+  margin-left: auto; /* Empuja el último elemento al borde derecho */
+}
+
+.menu li a {
+  text-decoration: none;
+  color: #fff;
+  padding: 5px;
+}
+
+.menu li a:hover {
+  color: #333;
+  background-color: #fff;
 }
