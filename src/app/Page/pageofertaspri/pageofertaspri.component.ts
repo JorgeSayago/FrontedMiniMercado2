@@ -8,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class PageofertaspriComponent implements OnInit {
 
   images: string[] = [
-    'assets/imagen1.jpg',
-    'assets/imagen2.jpg',
-    'assets/imagen3.jpg'
+    'https://www.tia.com.ec/media/catalog/category/cyberpapa2024/banner_grid_1b.png',
+    'assets/imagenes/image.jpg',
+    'assets/imagenes/ima3.jpg'
     // Añade más rutas de imágenes según sea necesario
   ];
   currentIndex: number = 0;

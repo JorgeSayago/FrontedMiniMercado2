@@ -4,13 +4,14 @@ import { ProductoComponent } from './Page/producto/producto.component';
 import { CrearClienteComponent } from './Page/crear-cliente/crear-cliente.component';
 import { TicketComponent } from './Page/ticket/ticket.component';
 import { LoginComponent } from './Page/login/login.component';
+import { PageofertaspriComponent } from './Page/pageofertaspri/pageofertaspri.component';
 
 const routes: Routes = [
   { path:"pagina/CrearProducto",component:ProductoComponent},
   { path:"pagina/CrearCliente",component:CrearClienteComponent},
   { path:"pagina/crearTicket",component:TicketComponent},
   { path:"pagina/loginUsuario",component:LoginComponent},
-  { path:"",component:LoginComponent}
+  { path:"",component:PageofertaspriComponent}
 
 ];
 
