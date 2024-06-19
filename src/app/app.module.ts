@@ -16,6 +16,7 @@ import { ProductoComponent } from './Page/producto/producto.component';
 import { MenuComponent } from './menu/menu.component';
 import { CrearClienteComponent } from './Page/crear-cliente/crear-cliente.component';
 import { TicketComponent } from './Page/ticket/ticket.component';
+import { PageofertaspriComponent } from './Page/pageofertaspri/pageofertaspri.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { TicketComponent } from './Page/ticket/ticket.component';
     ProductoComponent,
     MenuComponent,
     CrearClienteComponent,
-    TicketComponent
+    TicketComponent,
+    PageofertaspriComponent
   ],
   imports: [
     BrowserModule,
