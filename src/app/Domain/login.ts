@@ -1,4 +1,4 @@
 export class Login {
-    correo: string = '';
+    nombre: string = '';
     contrasenia: string = '';
   }

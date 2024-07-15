@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Login } from '../../Domain/login';
+import { Router } from '@angular/router';
+import { LoginService } from '../../services/login.service'
 
 @Component({
   selector: 'app-login',
@@ -9,9 +11,18 @@ import { Login } from '../../Domain/login';
 export class LoginComponent {
   loginData: Login = new Login(); // Inicialización correcta
 
-  onSubmit(): void {
-    console.log('Correo:', this.loginData.correo);
+
+  constructor(private loginService:LoginService,  private router: Router){
+    let params = this.router.getCurrentNavigation()?.extras.queryParams;
+      if(params){
+        this.loginData = new Login()
+        this.loginData = params['login']
+      }
+  }
+
+  login(){
+    console.log('Correo:', this.loginData.nombre);
     console.log('Contraseña:', this.loginData.contrasenia);
-    // Aquí puedes agregar la lógica para manejar el inicio de sesión
+    
   }
 }
