@@ -29,7 +29,8 @@ import { CrearUsuarioComponent } from './Page/crear-usuario/crear-usuario.compon
 import { ListarUsuarioComponent } from './Page/listar-usuario/listar-usuario.component';
 import { CrearProveedorComponent } from './Page/crear-proveedor/crear-proveedor.component';
 import { ListarProveedorComponent } from './Page/listar-proveedor/listar-proveedor.component';
-
+import { MatSelect } from '@angular/material/select';
+import { MatOption } from '@angular/material/select';
 
 
 @NgModule({
@@ -64,7 +65,9 @@ import { ListarProveedorComponent } from './Page/listar-proveedor/listar-proveed
     MatIconModule,
     MatInputModule,
     MatFormFieldModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSelect,
+    MatOption
   ],
   providers: [
     provideClientHydration(),

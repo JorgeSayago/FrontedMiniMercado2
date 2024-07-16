@@ -1,1 +1,53 @@
-<p>listar-usuario works!</p>
+<div class="container">
+    <h2>Lista De Usuarios</h2>
+    <br>
+    <table mat-table [dataSource]="listadoUsuariosWS">
+    
+    <!-- Columna ID -->
+      <ng-container matColumnDef="ID">
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let Usuario" >{{Usuario.user_id}}</td>
+      </ng-container>
+
+      <!-- Columna Placa -->
+      <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef>Nombre</th>
+        <td mat-cell *matCellDef="let Usuario" >{{Usuario.nombre}}</td>
+      </ng-container>
+  
+      <!-- Columna Marca -->
+      <ng-container matColumnDef="correo">
+        <th mat-header-cell *matHeaderCellDef>Correo</th>
+        <td mat-cell *matCellDef="let Usuario">{{Usuario.correo}}</td>
+      </ng-container>
+  
+      <!-- Columna Modelo -->
+       <!-- 
+      <ng-container matColumnDef="contrasenia">
+        <th mat-header-cell *matHeaderCellDef>Contraseña</th>
+        <td mat-cell *matCellDef="let Usuario">{{Usuario.contrasenia}}</td>
+      </ng-container>
+-->
+      <!-- Columna Modelo -->
+      <ng-container matColumnDef="rol">
+        <th mat-header-cell *matHeaderCellDef>Rol</th>
+        <td mat-cell *matCellDef="let Usuario">{{Usuario.rol}}</td>
+      </ng-container>
+
+  
+      <!-- Acciones -->
+      <ng-container matColumnDef="acciones">
+        <th mat-header-cell *matHeaderCellDef>Acciones</th>
+        <td mat-cell *matCellDef="let carro">
+          <a><mat-icon >delete</mat-icon> </a>
+          <br>
+          <a><mat-icon >mode_edit</mat-icon>  </a>
+          
+        </td>
+      </ng-container>
+  
+      <!-- Define las columnas que se mostrarán -->
+      <tr mat-header-row *matHeaderRowDef="['ID','nombre', 'correo', 'rol','acciones']"></tr>
+      <tr mat-row *matRowDef="let row; columns: ['ID','nombre', 'correo', 'rol','acciones'];"></tr>
+    </table>
+  </div>
