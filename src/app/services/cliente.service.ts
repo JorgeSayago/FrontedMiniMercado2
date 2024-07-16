@@ -12,4 +12,19 @@ export class ClienteService {
   save(cliente: Cliente) {
     return this.http.post<any>("http://localhost:8001/client/create_client", cliente)
   }
+
+
+  getAll(){
+    return this.http.get<any>("http://localhost:8001/client/list_clients");
+   }
+
+   delete(cliente: Cliente) {
+    const url = `http://localhost:8080/carrobe/rs/carros?placa=${cliente}`;
+    return this.http.delete(url);
+}
+
+  update(cliente: Cliente) {
+    const url = 'http://localhost:8080/carrobe/rs/carros';
+    return this.http.put(url, cliente);
+  }
 }

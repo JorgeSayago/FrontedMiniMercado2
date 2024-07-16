@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { FormsModule } from '@angular/forms';
 
@@ -18,6 +16,15 @@ import { CrearClienteComponent } from './Page/crear-cliente/crear-cliente.compon
 import { TicketComponent } from './Page/ticket/ticket.component';
 import { PageofertaspriComponent } from './Page/pageofertaspri/pageofertaspri.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ListarClienteComponent } from './Page/listar-cliente/listar-cliente.component';
+
+import { MatTableModule } from '@angular/material/table';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
+
+
 
 @NgModule({
   declarations: [
@@ -29,7 +36,8 @@ import { HttpClientModule } from '@angular/common/http';
     MenuComponent,
     CrearClienteComponent,
     TicketComponent,
-    PageofertaspriComponent
+    PageofertaspriComponent,
+    ListarClienteComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +47,12 @@ import { HttpClientModule } from '@angular/common/http';
     MatButtonModule,
     MatCardModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTableModule,
+    MatIconModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatButtonModule
   ],
   providers: [
     provideClientHydration(),

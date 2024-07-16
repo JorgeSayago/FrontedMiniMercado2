@@ -5,13 +5,15 @@ import { CrearClienteComponent } from './Page/crear-cliente/crear-cliente.compon
 import { TicketComponent } from './Page/ticket/ticket.component';
 import { LoginComponent } from './Page/login/login.component';
 import { PageofertaspriComponent } from './Page/pageofertaspri/pageofertaspri.component';
+import { ListarClienteComponent } from './Page/listar-cliente/listar-cliente.component';
 
 const routes: Routes = [
   { path:"pagina/CrearProducto",component:ProductoComponent},
   { path:"pagina/CrearCliente",component:CrearClienteComponent},
   { path:"pagina/crearTicket",component:TicketComponent},
   { path:"pagina/loginUsuario",component:LoginComponent},
-  { path:"",component:PageofertaspriComponent}
+  { path:"",component:PageofertaspriComponent},
+  { path:"pagina/listarCliente",component:ListarClienteComponent}
 
 ];
 
