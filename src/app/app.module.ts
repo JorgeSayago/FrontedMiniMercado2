@@ -24,6 +24,11 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { ActualizarClienteComponent } from './Page/actualizar-cliente/actualizar-cliente.component';
+import { ListarProductoComponent } from './Page/listar-producto/listar-producto.component';
+import { CrearUsuarioComponent } from './Page/crear-usuario/crear-usuario.component';
+import { ListarUsuarioComponent } from './Page/listar-usuario/listar-usuario.component';
+import { CrearProveedorComponent } from './Page/crear-proveedor/crear-proveedor.component';
+import { ListarProveedorComponent } from './Page/listar-proveedor/listar-proveedor.component';
 
 
 
@@ -39,7 +44,12 @@ import { ActualizarClienteComponent } from './Page/actualizar-cliente/actualizar
     TicketComponent,
     PageofertaspriComponent,
     ListarClienteComponent,
-    ActualizarClienteComponent
+    ActualizarClienteComponent,
+    ListarProductoComponent,
+    CrearUsuarioComponent,
+    ListarUsuarioComponent,
+    CrearProveedorComponent,
+    ListarProveedorComponent
   ],
   imports: [
     BrowserModule,

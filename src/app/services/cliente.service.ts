@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Cliente } from '../Domain/cliente';
-import { switchMap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'

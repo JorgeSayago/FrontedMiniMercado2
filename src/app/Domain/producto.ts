@@ -1,6 +1,8 @@
 export class Producto {
-    nombre: string = '';
+    product_id : number = 0;
+    nombre : string = '';
     descripcion: string = '';
     categoria: string = '';
-    stock: Number =0;    
+    precioUnitario:string = '';
+    stock: number = 0;
   }

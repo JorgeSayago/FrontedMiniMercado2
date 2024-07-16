@@ -16,6 +16,11 @@
             <input matInput [(ngModel)]="producto.categoria" name="categoria" type="text" required>
           </mat-form-field>
 
+          <mat-form-field appearance="fill">
+            <mat-label>Precio Unitario</mat-label>
+            <input matInput [(ngModel)]="producto.precioUnitario" name="Precio" type="text" required>
+          </mat-form-field>
+
           <mat-form-field class="form-field">
             <mat-label>Stock:</mat-label>
             <input matInput type="number" name="Stock" placeholder="stock del producto" [(ngModel)]="producto.stock">
