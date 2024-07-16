@@ -1,1 +1,27 @@
-<p>crear-proveedor works!</p>
+<div id="contact">
+    <mat-card>
+      <mat-card-title>Crear Proveedor </mat-card-title>
+      <mat-card-content>
+        <form>
+          <mat-form-field appearance="fill">
+            <mat-label>Nombre</mat-label>
+            <input matInput [(ngModel)]="proveedor.nombre" name="nombre del proveedor" type="text" >
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Contacto</mat-label>
+            <input matInput [(ngModel)]="proveedor.contacto" name="contacto del proveedor" type="text" >
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Dirección</mat-label>
+            <input matInput [(ngModel)]="proveedor.direccion" name="direccion" type="text" >
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Telefono</mat-label>
+            <input matInput [(ngModel)]="proveedor.telefono" name="telefono" type="text" >
+          </mat-form-field>
+
+          <button mat-raised-button color="primary" (click)="guardar()">Crear</button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>

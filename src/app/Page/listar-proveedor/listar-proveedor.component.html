@@ -1,1 +1,51 @@
-<p>listar-proveedor works!</p>
+<div class="container">
+    <h2>Lista De Productos</h2>
+    <br>
+    <table mat-table [dataSource]="listadoProveedoresWS">
+    
+    <!-- Columna ID -->
+      <ng-container matColumnDef="ID">
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let Proveedor" >{{Proveedor.supplier_id}}</td>
+      </ng-container>
+
+      <!-- Columna Placa -->
+      <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef>Nombre</th>
+        <td mat-cell *matCellDef="let Proveedor" >{{Proveedor.nombre}}</td>
+      </ng-container>
+  
+      <!-- Columna Marca -->
+      <ng-container matColumnDef="contacto">
+        <th mat-header-cell *matHeaderCellDef>Contacto</th>
+        <td mat-cell *matCellDef="let Proveedor">{{Proveedor.contacto}}</td>
+      </ng-container>
+  
+      <!-- Columna Modelo -->
+      <ng-container matColumnDef="direccion">
+        <th mat-header-cell *matHeaderCellDef>Dirección</th>
+        <td mat-cell *matCellDef="let Proveedor">{{Proveedor.direccion}}</td>
+      </ng-container>
+
+      <!-- Columna Modelo -->
+      <ng-container matColumnDef="telefono">
+        <th mat-header-cell *matHeaderCellDef>Telefono</th>
+        <td mat-cell *matCellDef="let Proveedor">{{Proveedor.telefono}}</td>
+      </ng-container>
+  
+      <!-- Acciones -->
+      <ng-container matColumnDef="acciones">
+        <th mat-header-cell *matHeaderCellDef>Acciones</th>
+        <td mat-cell *matCellDef="let carro">
+          <a><mat-icon >delete</mat-icon> </a>
+          <br>
+          <a><mat-icon >mode_edit</mat-icon>  </a>
+          
+        </td>
+      </ng-container>
+  
+      <!-- Define las columnas que se mostrarán -->
+      <tr mat-header-row *matHeaderRowDef="['ID','nombre', 'contacto', 'direccion', 'telefono','acciones']"></tr>
+      <tr mat-row *matRowDef="let row; columns: ['ID','nombre', 'contacto', 'direccion', 'telefono','acciones'];"></tr>
+    </table>
+  </div>

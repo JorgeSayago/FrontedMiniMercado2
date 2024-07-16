@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { Proveedor } from '../../Domain/proveedor';
+import { ProveedorService } from '../../services/proveedor.service';
 
 @Component({
   selector: 'app-crear-proveedor',
@@ -7,4 +10,24 @@ import { Component } from '@angular/core';
 })
 export class CrearProveedorComponent {
 
+  proveedor: Proveedor = new Proveedor();
+
+  constructor(private  proveedorService:ProveedorService,
+    private router: Router){
+      let params = this.router.getCurrentNavigation()?.extras.queryParams;
+      if(params){
+        this.proveedor = new Proveedor()
+        this.proveedor= params['Proveedor']
+      }
+    }
+
+    guardar(){
+      console.log('Provedor guardado:', this.proveedor);
+      this.proveedorService.save(this.proveedor).subscribe(data => {
+        console.log("resultado WS save", data);
+        //this.router.navigate(['pagina1/Listar'])
+      });
+      this.proveedor = new Proveedor()
+      alert("Usuario creado exitosamente")
+    }
 }
