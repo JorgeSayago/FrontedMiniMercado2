@@ -1,31 +1,66 @@
 .menu {
-  background-color: #808080;
-  padding: 10px;
+  background-color: #333;
+  padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .menu ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  display: flex; /* Cambiamos a Flexbox para el contenedor ul */
+  display: flex;
+  align-items: center;
 }
 
-.menu li {
-  display: inline-block; /* Mantenemos inline-block para la apariencia */
-  margin-right: 10px;
-}
+
 
 .menu li.right {
-  margin-left: auto; /* Empuja el último elemento al borde derecho */
+  margin-left: auto;
 }
 
 .menu li a {
   text-decoration: none;
   color: #fff;
-  padding: 5px;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .menu li a:hover {
   color: #333;
   background-color: #fff;
+}
+
+.submenu {
+  display: none; /* Oculto por defecto */
+  position: absolute;
+  top: 100%; /* Justo debajo del elemento principal */
+  left: 0;
+  background-color: #444;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px 0;
+  list-style-type: none;
+  margin: 0;
+  z-index: 1000; /* Asegura que el submenú esté por encima de otros elementos */
+  min-width: 200px;
+}
+
+.submenu li {
+  margin: 0;
+}
+
+.submenu li a {
+  padding: 10px 15px;
+  display: block;
+  color: #fff;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.submenu li a:hover {
+  color: #333;
+  background-color: #fff;
+}
+
+.menu li:hover .submenu {
+  display: block; /* Mostrar el submenú al pasar el ratón por encima */
 }
