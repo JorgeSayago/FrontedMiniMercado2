@@ -17,7 +17,7 @@ export class CrearClienteComponent {
       let params = this.router.getCurrentNavigation()?.extras.queryParams;
       if(params){
         this.cliente = new Cliente()
-        this.cliente= params['cliente']
+        this.cliente= params['Cliente']
       }
     }
 

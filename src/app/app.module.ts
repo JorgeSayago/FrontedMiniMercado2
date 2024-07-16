@@ -23,6 +23,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
+import { ActualizarClienteComponent } from './Page/actualizar-cliente/actualizar-cliente.component';
 
 
 
@@ -37,7 +38,8 @@ import { MatButtonModule } from '@angular/material/button';
     CrearClienteComponent,
     TicketComponent,
     PageofertaspriComponent,
-    ListarClienteComponent
+    ListarClienteComponent,
+    ActualizarClienteComponent
   ],
   imports: [
     BrowserModule,

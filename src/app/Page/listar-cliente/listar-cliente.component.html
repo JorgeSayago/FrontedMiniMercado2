@@ -2,7 +2,13 @@
     <h2>Lista De Clientes</h2>
     <br>
     <table mat-table [dataSource]="listadoClienteWS">
-        
+    
+    <!-- Columna ID -->
+      <ng-container matColumnDef="ID">
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let Cliente" >{{Cliente.cient_id}}</td>
+      </ng-container>
+
       <!-- Columna Placa -->
       <ng-container matColumnDef="cedula">
         <th mat-header-cell *matHeaderCellDef>Cedula</th>
@@ -31,15 +37,15 @@
       <ng-container matColumnDef="acciones">
         <th mat-header-cell *matHeaderCellDef>Acciones</th>
         <td mat-cell *matCellDef="let carro">
-          <a><mat-icon (click)="eliminar(cliente)">delete</mat-icon> </a>
+          <a><mat-icon (click)="eliminar(Cliente)">delete</mat-icon> </a>
           <br>
-          <a><mat-icon (click)="editar(cliente)">mode_edit</mat-icon>  </a>
+          <a><mat-icon (click)="editar(Cliente)">mode_edit</mat-icon>  </a>
           
         </td>
       </ng-container>
   
       <!-- Define las columnas que se mostrarán -->
-      <tr mat-header-row *matHeaderRowDef="['cedula', 'nombre', 'correo', 'telefono','acciones']"></tr>
-      <tr mat-row *matRowDef="let row; columns: ['cedula', 'nombre', 'correo', 'telefono','acciones'];"></tr>
+      <tr mat-header-row *matHeaderRowDef="['ID','cedula', 'nombre', 'correo', 'telefono','acciones']"></tr>
+      <tr mat-row *matRowDef="let row; columns: ['ID','cedula', 'nombre', 'correo', 'telefono','acciones'];"></tr>
     </table>
   </div>

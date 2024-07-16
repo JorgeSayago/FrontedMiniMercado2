@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Cliente } from '../Domain/cliente';
+import { switchMap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ClienteService {
+
+  private baseUrl = 'http://localhost:8001/client';
 
   constructor(private http: HttpClient) { }
 
@@ -19,7 +22,7 @@ export class ClienteService {
    }
 
    delete(cliente: Cliente) {
-    const url = `http://localhost:8080/carrobe/rs/carros?placa=${cliente}`;
+    const url = `http://localhost:8001/client/delete_client_by_ID/?cient_id=${cliente}`;
     return this.http.delete(url);
 }
 

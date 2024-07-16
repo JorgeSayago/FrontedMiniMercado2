@@ -10,15 +10,15 @@ import { ClienteService } from '../../services/cliente.service';
 })
 export class ListarClienteComponent {
 
-  cliente: Cliente = new Cliente();
+  Cliente: Cliente = new Cliente();
   listadoClienteWS:any;
 
   constructor(private clienteService: ClienteService,
     private router: Router) {
   let params = this.router.getCurrentNavigation()?.extras.queryParams;
     if(params){
-      this.cliente = new Cliente();
-      this.cliente = params['cliente']
+      this.Cliente = new Cliente();
+      this.Cliente = params['cliente']
     }
 }
 
@@ -26,8 +26,8 @@ ngOnInit(): void {
   this.listadoClienteWS = this.clienteService.getAll();
  }
 
- eliminar(cliente: Cliente){
-  this.clienteService.delete(cliente).subscribe(data => {
+ eliminar(Cliente: Cliente){
+  this.clienteService.delete(Cliente).subscribe(data => {
     console.log("resultado WS save", data);
     });
 this.reloadPage();
@@ -43,16 +43,15 @@ reloadPage(){
   )
  }
 
- editar(cliente: Cliente){
-  console.log(cliente)
+ editar(Cliente: Cliente){
+  console.log(Cliente)
   let params: NavigationExtras = {
     queryParams: {
-      cliente: Cliente,
+      Cliente: Cliente,
     }
   }
-  this.router.navigate(['/'], params)
+  this.router.navigate(['pagina/ActualizarCliente'], params)
 }
-
 }
 
 

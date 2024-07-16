@@ -6,6 +6,7 @@ import { TicketComponent } from './Page/ticket/ticket.component';
 import { LoginComponent } from './Page/login/login.component';
 import { PageofertaspriComponent } from './Page/pageofertaspri/pageofertaspri.component';
 import { ListarClienteComponent } from './Page/listar-cliente/listar-cliente.component';
+import { ActualizarClienteComponent } from './Page/actualizar-cliente/actualizar-cliente.component';
 
 const routes: Routes = [
   { path:"pagina/CrearProducto",component:ProductoComponent},
@@ -13,7 +14,8 @@ const routes: Routes = [
   { path:"pagina/crearTicket",component:TicketComponent},
   { path:"pagina/loginUsuario",component:LoginComponent},
   { path:"",component:PageofertaspriComponent},
-  { path:"pagina/listarCliente",component:ListarClienteComponent}
+  { path:"pagina/listarCliente",component:ListarClienteComponent},
+  { path:"pagina/ActualizarCliente",component:ActualizarClienteComponent}
 
 ];
 
