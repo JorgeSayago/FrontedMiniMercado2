@@ -17,6 +17,7 @@ import { MenuComponent } from './menu/menu.component';
 import { CrearClienteComponent } from './Page/crear-cliente/crear-cliente.component';
 import { TicketComponent } from './Page/ticket/ticket.component';
 import { PageofertaspriComponent } from './Page/pageofertaspri/pageofertaspri.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { PageofertaspriComponent } from './Page/pageofertaspri/pageofertaspri.co
     MatInputModule,
     MatButtonModule,
     MatCardModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [
     provideClientHydration(),
