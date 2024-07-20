@@ -1,14 +1,29 @@
-<nav class="menu">
-  <ul>
-    <li><a routerLink="pagina/CrearCliente">Crear Clientes</a></li>
-    <li><a routerLink="pagina/listarCliente">Listar Clientes</a></li>
-    <li><a routerLink="pagina/CrearProducto">Crear Producto</a></li>
-    <li><a routerLink="pagina/listarProducto">Listar Producto</a></li>
-    <li><a routerLink="pagina/crearUsuario">Crear Usuario</a></li>
-    <li><a routerLink="pagina/listarUsuario">Listar Usuarios</a></li>
-    <li><a routerLink="pagina/crearProveedor">Crear Proveedor</a></li>
-    <li><a routerLink="pagina/listarProveedor">Listar Proveedores</a></li>
-    
-    <li class="right"><a (click)="logout()" >Cerrar Sesión</a></li>
+<div id="header">
+  <ul class="nav">
+      <li><a href="#">Clientes</a>
+          <ul>
+              <li><a routerLink="pagina/CrearCliente">Crear Clientes</a></li>
+              <li><a routerLink="pagina/listarCliente">Listar Clientes</a></li>
+          </ul>
+      </li>
+      <li><a href="#">Productos</a>
+          <ul>
+              <li><a routerLink="pagina/CrearProducto">Crear Producto</a></li>
+              <li><a routerLink="pagina/listarProducto">Listar Producto</a></li>
+          </ul>
+      </li>
+      <li><a href="#">Usuario</a>
+          <ul>
+              <li><a routerLink="pagina/crearUsuario">Crear Usuario</a></li>
+              <li><a routerLink="pagina/listarUsuario">Listar Usuarios</a></li>
+          </ul>
+      </li>
+      <li><a href="#">Proveedor</a>
+          <ul>
+              <li><a routerLink="pagina/crearProveedor">Crear Proveedor</a></li>
+              <li><a routerLink="pagina/listarProveedor">Listar Proveedores</a></li>
+          </ul>
+      </li>
+      <li class="right"><a (click)="logout()">Cerrar Sesión</a></li>
   </ul>
-</nav>
+</div>
