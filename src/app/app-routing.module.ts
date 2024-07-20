@@ -12,20 +12,24 @@ import { CrearUsuarioComponent } from './Page/crear-usuario/crear-usuario.compon
 import { ListarUsuarioComponent } from './Page/listar-usuario/listar-usuario.component';
 import { CrearProveedorComponent } from './Page/crear-proveedor/crear-proveedor.component';
 import { ListarProveedorComponent } from './Page/listar-proveedor/listar-proveedor.component';
+import { CabeceraComponent } from './cabecera/cabecera.component';
+import { MenuComponent } from './menu/menu.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
-  { path:"pagina/CrearProducto",component:ProductoComponent},
-  { path:"pagina/CrearCliente",component:CrearClienteComponent},
-  { path:"pagina/crearTicket",component:TicketComponent},
-  { path:"pagina/loginUsuario",component:LoginComponent},
-  { path:"",component:PageofertaspriComponent},
-  { path:"pagina/listarCliente",component:ListarClienteComponent},
-  { path:"pagina/ActualizarCliente",component:ActualizarClienteComponent},
-  { path:"pagina/listarProducto",component:ListarProductoComponent},
-  { path:"pagina/crearUsuario",component:CrearUsuarioComponent},
-  { path:"pagina/listarUsuario",component:ListarUsuarioComponent},
-  { path:"pagina/crearProveedor",component:CrearProveedorComponent},
-  { path:"pagina/listarProveedor",component:ListarProveedorComponent}
+  { path:"pagina/CrearProducto",component:ProductoComponent, canActivate: [AuthGuard]},
+  { path:"pagina/CrearCliente",component:CrearClienteComponent, canActivate: [AuthGuard]},
+  { path:"pagina/crearTicket",component:TicketComponent, canActivate: [AuthGuard]},
+  { path:"login",component:LoginComponent},
+  { path:"",component:PageofertaspriComponent, canActivate: [AuthGuard]},
+  { path:"pagina/listarCliente",component:ListarClienteComponent, canActivate: [AuthGuard]},
+  { path:"pagina/ActualizarCliente",component:ActualizarClienteComponent, canActivate: [AuthGuard]},
+  { path:"pagina/listarProducto",component:ListarProductoComponent, canActivate: [AuthGuard]},
+  { path:"pagina/crearUsuario",component:CrearUsuarioComponent, canActivate: [AuthGuard]},
+  { path:"pagina/listarUsuario",component:ListarUsuarioComponent, canActivate: [AuthGuard]},
+  { path:"pagina/crearProveedor",component:CrearProveedorComponent, canActivate: [AuthGuard]},
+  { path:"pagina/listarProveedor",component:ListarProveedorComponent, canActivate: [AuthGuard]},
+  { path:"pagina/pricipal",component:CabeceraComponent, canActivate: [AuthGuard]}
 
 
 ];

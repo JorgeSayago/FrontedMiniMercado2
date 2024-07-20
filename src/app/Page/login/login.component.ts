@@ -11,18 +11,26 @@ import { LoginService } from '../../services/login.service'
 export class LoginComponent {
   loginData: Login = new Login(); // Inicialización correcta
 
-
   constructor(private loginService:LoginService,  private router: Router){
     let params = this.router.getCurrentNavigation()?.extras.queryParams;
       if(params){
         this.loginData = new Login()
-        this.loginData = params['login']
+        this.loginData = params['Login']
       }
   }
 
   login(){
     console.log('Correo:', this.loginData.nombre);
     console.log('Contraseña:', this.loginData.contrasenia);
+
+    this.loginService.login(this.loginData).subscribe(
+      () => {
+        this.router.navigate(['/']);
+      },
+      error => {
+        console.error('Login failed', error);
+      }
+    );
     
   }
 }
