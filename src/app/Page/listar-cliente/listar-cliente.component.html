@@ -6,40 +6,40 @@
     <!-- Columna ID -->
       <ng-container matColumnDef="ID">
         <th mat-header-cell *matHeaderCellDef>ID</th>
-        <td mat-cell *matCellDef="let Cliente" >{{Cliente.cient_id}}</td>
+        <td mat-cell *matCellDef="let cliente" >{{cliente.cient_id}}</td>
       </ng-container>
 
       <!-- Columna Placa -->
       <ng-container matColumnDef="cedula">
         <th mat-header-cell *matHeaderCellDef>Cedula</th>
-        <td mat-cell *matCellDef="let Cliente" >{{Cliente.cedula}}</td>
+        <td mat-cell *matCellDef="let cliente" >{{cliente.cedula}}</td>
       </ng-container>
   
       <!-- Columna Marca -->
       <ng-container matColumnDef="nombre">
         <th mat-header-cell *matHeaderCellDef>Nombre</th>
-        <td mat-cell *matCellDef="let Cliente">{{Cliente.nombre}}</td>
+        <td mat-cell *matCellDef="let cliente">{{cliente.nombre}}</td>
       </ng-container>
   
       <!-- Columna Modelo -->
       <ng-container matColumnDef="correo">
         <th mat-header-cell *matHeaderCellDef>Correo</th>
-        <td mat-cell *matCellDef="let Cliente">{{Cliente.correo}}</td>
+        <td mat-cell *matCellDef="let cliente">{{cliente.correo}}</td>
       </ng-container>
 
       <!-- Columna Modelo -->
       <ng-container matColumnDef="telefono">
         <th mat-header-cell *matHeaderCellDef>Telefono</th>
-        <td mat-cell *matCellDef="let Cliente">{{Cliente.telefono}}</td>
+        <td mat-cell *matCellDef="let cliente">{{cliente.telefono}}</td>
       </ng-container>
   
       <!-- Acciones -->
       <ng-container matColumnDef="acciones">
         <th mat-header-cell *matHeaderCellDef>Acciones</th>
-        <td mat-cell *matCellDef="let carro">
-          <a><mat-icon (click)="eliminar(Cliente)">delete</mat-icon> </a>
+        <td mat-cell *matCellDef="let cliente">
+          <a><mat-icon (click)="eliminar(cliente)">delete</mat-icon> </a>
           <br>
-          <a><mat-icon (click)="editar(Cliente)">mode_edit</mat-icon>  </a>
+          <a><mat-icon (click)="editar(cliente)">mode_edit</mat-icon>  </a>
           
         </td>
       </ng-container>

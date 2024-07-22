@@ -5,20 +5,20 @@
         <form>
           <mat-form-field appearance="fill">
             <mat-label>nombre</mat-label>
-            <input matInput [(ngModel)]="Cliente.nombre" name="nombre del cliente" type="text" required>
+            <input matInput [(ngModel)]="cliente.nombre" name="nombre del cliente" type="text" required>
           </mat-form-field>
           <mat-form-field appearance="fill">
             <mat-label>cedula</mat-label>
-            <input matInput [(ngModel)]="Cliente.cedula" name="cedula del cliente" type="text" required>
+            <input matInput [(ngModel)]="cliente.cedula" name="cedula del cliente" type="text" required>
           </mat-form-field>
           <mat-form-field appearance="fill">
             <mat-label>Correo</mat-label>
-            <input matInput [(ngModel)]="Cliente.correo" name="correo" type="email" required>
+            <input matInput [(ngModel)]="cliente.correo" name="correo" type="email" required>
           </mat-form-field>
 
           <mat-form-field class="form-field">
             <mat-label>telefono celular:</mat-label>
-            <input matInput type="text" name="telefono" placeholder="telefono" [(ngModel)]="Cliente.telefono">
+            <input matInput type="text" name="telefono" placeholder="telefono" [(ngModel)]="cliente.telefono">
           </mat-form-field>
 
           <button mat-raised-button color="primary" (click)="modificar()">Actualizar</button>

@@ -21,12 +21,18 @@ export class ClienteService {
    }
 
    delete(cliente: Cliente) {
-    const url = `http://localhost:8001/client/delete_client_by_ID/?cient_id=${cliente}`;
+    const url = `http://localhost:8001/client/delete_client_by_ID/?client_id=${cliente.cient_id}`;
     return this.http.delete(url);
-}
+  }
 
   update(cliente: Cliente) {
-    const url = 'http://localhost:8080/carrobe/rs/carros';
+    const url = `http://localhost:8001/client/updateCli`;
     return this.http.put(url, cliente);
-  }
+  }
+
+  getClienteById(id: number) {
+    const url = `http://localhost:8001/client/search_client_by_ID/${id}`;
+    return this.http.get<Cliente>(url);
+  }
+  
 }
