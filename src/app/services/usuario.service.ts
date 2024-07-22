@@ -18,12 +18,12 @@ export class UsuarioService {
    }
 
    delete(usuario: Usuario) {
-    const url = `http://localhost:8001/user`;
+    const url = `http://localhost:8001/user/deleteUsu`;
     return this.http.delete(url ,{ body: usuario });
   }
 
   update(usuario: Usuario) {
-    const url = `http://localhost:8001/user`;
+    const url = `http://localhost:8001/user/updateUsu`;
     return this.http.put(url, usuario);
   }
 
