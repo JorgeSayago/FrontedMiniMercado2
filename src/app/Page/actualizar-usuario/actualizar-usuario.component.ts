@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Usuario } from '../../Domain/usuario';
 import { UsuarioService } from '../../services/usuario.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-actualizar-usuario',
@@ -28,7 +29,23 @@ export class ActualizarUsuarioComponent {
       this.usuarioService.update(this.usuario).subscribe(data => {
         console.log("Resultado WS SAVE", data);
       });
-      //this.router.navigate(['pagina/listarCliente'])
+      this.router.navigate(['pagina/listarUsuario'])
       }
+
+  showUpdateConfirmation() {
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: 'Estás a punto de Actualizar el Usuario',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Sí, Actualizar el Usurio',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.modificar();
+        //this.loginService.logout();
+      }
+    });
+  }
 
 }

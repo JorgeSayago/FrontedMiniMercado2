@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
 import { Usuario } from '../../Domain/usuario';
 import { UsuarioService } from '../../services/usuario.service';
-
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-listar-usuario',
@@ -27,14 +27,6 @@ ngOnInit(): void {
   this.listadoUsuariosWS = this.usuarioService.getAll();
  }
 
- eliminar(usuario: Usuario){
-  this.usuarioService.delete(usuario).subscribe(data => {
-    console.log("resultado WS save", data);
-    });
-this.reloadPage();
-
-  }
-
 reloadPage(){
   let currentUrl = this.router.url
   this.router.navigateByUrl("/", {skipLocationChange: true}).then(
@@ -53,5 +45,23 @@ reloadPage(){
   }
   this.router.navigate(['pagina/ActualizarUsuario'], params)
 }
+
+eliminar(usuario: Usuario){
+  Swal.fire({
+    title: '¿Estás seguro?',
+    text: 'Estás a punto de Eliminar el Usuario.',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Sí, Eliminar el Usuario.',
+    cancelButtonText: 'Cancelar'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      this.usuarioService.delete(usuario).subscribe(data => {
+        console.log("resultado WS save", data);
+        });
+    this.reloadPage();
+    }
+  });
+  }
 
 }
