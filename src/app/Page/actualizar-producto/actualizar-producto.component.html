@@ -1,1 +1,34 @@
-<p>actualizar-producto works!</p>
+<div id="contact">
+    <mat-card>
+      <mat-card-title>Actualizar Productos</mat-card-title>
+      <mat-card-content>
+        <form>
+            <mat-form-field appearance="fill">
+                <mat-label>nombre</mat-label>
+                <input matInput [(ngModel)]="producto.nombre" name="nombre del producto" type="text">
+              </mat-form-field>
+              <mat-form-field appearance="fill">
+                <mat-label>Descripcion</mat-label>
+                <input matInput [(ngModel)]="producto.descripcion" name="descripcion del producto" type="text" >
+              </mat-form-field>
+              <mat-form-field appearance="fill">
+                <mat-label>Categoria</mat-label>
+                <input matInput [(ngModel)]="producto.categoria" name="categoria" type="text">
+              </mat-form-field>
+    
+              <mat-form-field appearance="fill">
+                <mat-label>Precio Unitario</mat-label>
+                <input matInput [(ngModel)]="producto.precioUnitario" name="Precio" type="text">
+              </mat-form-field>
+    
+              <mat-form-field class="form-field">
+                <mat-label>Stock:</mat-label>
+                <input matInput type="number" name="Stock" placeholder="stock del producto" [(ngModel)]="producto.stock">
+              </mat-form-field>
+          <button mat-raised-button color="primary" (click)="modificar()">Actualizar</button>
+          
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+

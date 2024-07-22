@@ -21,8 +21,8 @@ export class ClienteService {
    }
 
    delete(cliente: Cliente) {
-    const url = `http://localhost:8001/client/delete_client_by_ID/?client_id=${cliente.cient_id}`;
-    return this.http.delete(url);
+    const url = `http://localhost:8001/client/deleteCli`;
+    return this.http.delete(url ,{ body: cliente });
   }
 
   update(cliente: Cliente) {

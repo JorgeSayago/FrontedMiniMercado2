@@ -26,4 +26,30 @@ ngOnInit(): void {
   this.listadoProductosWS = this.productoService.getAll();
  }
 
+ eliminar(producto: Producto){
+  this.productoService.delete(producto).subscribe(data => {
+    console.log("resultado WS save", data);
+    });
+this.reloadPage();
+
+  }
+
+reloadPage(){
+  let currentUrl = this.router.url
+  this.router.navigateByUrl("/", {skipLocationChange: true}).then(
+    () =>{
+      this.router.navigate([currentUrl])
+    }
+  )
+ }
+
+ editar(producto: Producto){
+  console.log(producto)
+  let params: NavigationExtras = {
+    queryParams: {
+      Producto: producto,
+    }
+  }
+  this.router.navigate(['pagina/ActualizarProducto'], params)
+}
 }
