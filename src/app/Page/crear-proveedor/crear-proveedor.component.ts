@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Proveedor } from '../../Domain/proveedor';
 import { ProveedorService } from '../../services/proveedor.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-crear-proveedor',
@@ -28,6 +29,16 @@ export class CrearProveedorComponent {
         //this.router.navigate(['pagina1/Listar'])
       });
       this.proveedor = new Proveedor()
-      alert("Proveedor creado exitosamente")
+      //alert("Proveedor creado exitosamente")
+      this.showSupplierCreatedAlert();
     }
+    showSupplierCreatedAlert() {
+      Swal.fire({
+        icon: 'success',
+        title: '¡Éxito!',
+        text: 'Proveedor creado exitosamente.',
+        confirmButtonText: 'Aceptar'
+      });
+    }
+    
 }
