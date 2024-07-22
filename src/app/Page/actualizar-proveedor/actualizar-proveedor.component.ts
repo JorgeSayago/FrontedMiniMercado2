@@ -17,7 +17,7 @@ export class ActualizarProveedorComponent {
       let params = this.router.getCurrentNavigation()?.extras.queryParams;
       if(params){
         this.proveedor = new Proveedor()
-        this.proveedor= params['proveedor']
+        this.proveedor= params['Proveedor']
       }
     }
 
@@ -27,8 +27,7 @@ export class ActualizarProveedorComponent {
       this.proveedorService.update(this.proveedor).subscribe(data => {
         console.log("Resultado WS SAVE", data);
       });
-      this.router.navigate(['pagina/listarCliente'])
-      
+      //this.router.navigate(['pagina/listarCliente'])
       }
 
 }

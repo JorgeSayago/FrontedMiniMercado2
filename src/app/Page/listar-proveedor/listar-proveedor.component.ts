@@ -46,7 +46,7 @@ reloadPage(){
   console.log(proveedor)
   let params: NavigationExtras = {
     queryParams: {
-      proveedor: Proveedor,
+      Proveedor: proveedor,
     }
   }
   this.router.navigate(['pagina/ActualizarProveedor'], params)
