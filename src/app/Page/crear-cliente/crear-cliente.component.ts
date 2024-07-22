@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Cliente } from '../../Domain/cliente';
 import { Router } from '@angular/router';
 import { ClienteService } from '../../services/cliente.service';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-crear-cliente',
@@ -28,7 +30,18 @@ export class CrearClienteComponent {
       //this.router.navigate(['pagina1/Listar'])
     });
     this.cliente = new Cliente()
-    alert("Cliente creado exitosamente")
+    //alert("Cliente creado exitosamente")
+    this.showClientCreatedAlert();
     
   }
+
+  showClientCreatedAlert() {
+    Swal.fire({
+      icon: 'success',
+      title: '¡Éxito!',
+      text: 'Cliente creado exitosamente.',
+      confirmButtonText: 'Aceptar'
+    });
+  }
+  
 }
