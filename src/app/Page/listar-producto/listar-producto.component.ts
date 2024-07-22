@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
 import { Producto } from '../../Domain/producto';
 import { ProductoService } from '../../services/producto.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-listar-producto',
@@ -26,12 +27,22 @@ ngOnInit(): void {
   this.listadoProductosWS = this.productoService.getAll();
  }
 
- eliminar(producto: Producto){
-  this.productoService.delete(producto).subscribe(data => {
-    console.log("resultado WS save", data);
-    });
-this.reloadPage();
-
+eliminar(producto: Producto){
+  Swal.fire({
+    title: '¿Estás seguro?',
+    text: 'Estás a punto de Eliminar el Producto.',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Sí, Eliminar el Producto',
+    cancelButtonText: 'Cancelar'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      this.productoService.delete(producto).subscribe(data => {
+        console.log("resultado WS save", data);
+        });
+    this.reloadPage();
+    }
+  });
   }
 
 reloadPage(){
