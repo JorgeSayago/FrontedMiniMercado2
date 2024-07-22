@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Producto } from '../../Domain/producto';
 import { ProductoService } from '../../services/producto.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-producto',
@@ -28,6 +29,17 @@ export class ProductoComponent {
       //this.router.navigate(['pagina1/Listar'])
     });
     this.producto = new Producto()
-    alert("Cliente creado exitosamente")
+    //alert("Producto creado exitosamente")
+    this.showProductCreatedAlert();
   }
+
+  showProductCreatedAlert() {
+    Swal.fire({
+      icon: 'success',
+      title: '¡Éxito!',
+      text: 'Producto creado exitosamente.',
+      confirmButtonText: 'Aceptar'
+    });
+  }
+  
 }
