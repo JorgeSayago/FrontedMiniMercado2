@@ -32,10 +32,12 @@ export class CrearPromotionComponent {
         next: (response) => {
           console.log('Promoción creada:', response);
           this.promotion = new Promotion()
+          alert("Promoción creada exitosamente")
         },
         error: (error) => {
           console.error('Error al crear la promoción:', error);
           this.promotion = new Promotion()
+          alert("Promoción creada exitosamente")
         }
       });
     }

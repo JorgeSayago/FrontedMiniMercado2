@@ -28,6 +28,6 @@ export class CrearProveedorComponent {
         //this.router.navigate(['pagina1/Listar'])
       });
       this.proveedor = new Proveedor()
-      alert("Usuario creado exitosamente")
+      alert("Proveedor creado exitosamente")
     }
 }

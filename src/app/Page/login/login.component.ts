@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Login } from '../../Domain/login';
 import { Router } from '@angular/router';
 import { LoginService } from '../../services/login.service'
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -26,11 +26,33 @@ export class LoginComponent {
     this.loginService.login(this.loginData).subscribe(
       () => {
         this.router.navigate(['/']);
+        //alert("Bienvenido")
+        this.showWelcomeAlert();
       },
       error => {
         console.error('Login failed', error);
+        //alert("Usuario Desconocido")
+        this.showUnknownUserAlert();
+        this.loginData = new  Login()
       }
     );
-    
   }
+
+  showUnknownUserAlert() {
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Usuario Desconocido',
+      confirmButtonText: 'Entendido'
+    });
+  }
+  showWelcomeAlert() {
+    Swal.fire({
+      icon: 'success',
+      title: '¡Bienvenido!',
+      text: 'Nos alegra verte de nuevo.',
+      confirmButtonText: 'Gracias'
+    });
+  }
+  
 }
