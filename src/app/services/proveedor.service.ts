@@ -18,4 +18,14 @@ export class ProveedorService {
   getAll(){
     return this.http.get<any>("http://localhost:8001/supplier/list_suppliers");
    }
+
+   delete(proveedor: Proveedor) {
+    const url = `http://localhost:8001/supplier/deleteSup`;
+    return this.http.delete(url ,{ body: proveedor });
+  }
+
+  update(proveedor: Proveedor) {
+    const url = `http://localhost:8001/supplier/updateSup`;
+    return this.http.put(url, proveedor);
+  }
 }

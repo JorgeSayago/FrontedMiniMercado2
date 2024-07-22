@@ -39,6 +39,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { DatePipe } from '@angular/common';
 import { ListarPromotionComponent } from './Page/listar-promotion/listar-promotion.component';
 import { ActualizarProductoComponent } from './Page/actualizar-producto/actualizar-producto.component';
+import { ActualizarProveedorComponent } from './Page/actualizar-proveedor/actualizar-proveedor.component';
 
 
 @NgModule({
@@ -61,7 +62,8 @@ import { ActualizarProductoComponent } from './Page/actualizar-producto/actualiz
     ListarProveedorComponent,
     CrearPromotionComponent,
     ListarPromotionComponent,
-    ActualizarProductoComponent
+    ActualizarProductoComponent,
+    ActualizarProveedorComponent
   ],
   imports: [
     BrowserModule,

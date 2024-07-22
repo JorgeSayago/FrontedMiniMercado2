@@ -18,6 +18,7 @@ import { AuthGuard } from './auth.guard';
 import { CrearPromotionComponent } from './Page/crear-promotion/crear-promotion.component';
 import { ListarPromotionComponent } from './Page/listar-promotion/listar-promotion.component';
 import { ActualizarProductoComponent } from './Page/actualizar-producto/actualizar-producto.component';
+import { ActualizarProveedorComponent } from './Page/actualizar-proveedor/actualizar-proveedor.component';
 
 const routes: Routes = [
   { path:"pagina/CrearProducto",component:ProductoComponent, canActivate: [AuthGuard]},
@@ -33,6 +34,7 @@ const routes: Routes = [
   { path:"pagina/listarUsuario",component:ListarUsuarioComponent, canActivate: [AuthGuard]},
   { path:"pagina/crearProveedor",component:CrearProveedorComponent, canActivate: [AuthGuard]},
   { path:"pagina/listarProveedor",component:ListarProveedorComponent, canActivate: [AuthGuard]},
+  { path:"pagina/ActualizarProveedor",component:ActualizarProveedorComponent, canActivate: [AuthGuard]},
   { path:"pagina/pricipal",component:CabeceraComponent, canActivate: [AuthGuard]},
   { path:"pagina/crearPromocion",component:CrearPromotionComponent, canActivate: [AuthGuard]},
   { path:"pagina/listarPromocion",component:ListarPromotionComponent, canActivate: [AuthGuard]}

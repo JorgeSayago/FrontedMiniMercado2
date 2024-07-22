@@ -25,6 +25,31 @@ export class ListarProveedorComponent {
 ngOnInit(): void {
   this.listadoProveedoresWS= this.proveedorService.getAll();
  }
+ eliminar(proveedor: Proveedor){
+  this.proveedorService.delete(proveedor).subscribe(data => {
+    console.log("resultado WS save", data);
+    });
+this.reloadPage();
 
+  }
+
+reloadPage(){
+  let currentUrl = this.router.url
+  this.router.navigateByUrl("/", {skipLocationChange: true}).then(
+    () =>{
+      this.router.navigate([currentUrl])
+    }
+  )
+ }
+
+ editar(proveedor: Proveedor){
+  console.log(proveedor)
+  let params: NavigationExtras = {
+    queryParams: {
+      proveedor: Proveedor,
+    }
+  }
+  this.router.navigate(['pagina/ActualizarProveedor'], params)
+}
 
 }
