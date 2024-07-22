@@ -31,6 +31,12 @@ import { CrearProveedorComponent } from './Page/crear-proveedor/crear-proveedor.
 import { ListarProveedorComponent } from './Page/listar-proveedor/listar-proveedor.component';
 import { MatSelect } from '@angular/material/select';
 import { MatOption } from '@angular/material/select';
+import { CrearPromotionComponent } from './Page/crear-promotion/crear-promotion.component';
+
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+
+import { DatePipe } from '@angular/common';
 
 
 @NgModule({
@@ -50,7 +56,8 @@ import { MatOption } from '@angular/material/select';
     CrearUsuarioComponent,
     ListarUsuarioComponent,
     CrearProveedorComponent,
-    ListarProveedorComponent
+    ListarProveedorComponent,
+    CrearPromotionComponent
   ],
   imports: [
     BrowserModule,
@@ -67,11 +74,14 @@ import { MatOption } from '@angular/material/select';
     MatFormFieldModule,
     MatButtonModule,
     MatSelect,
-    MatOption
+    MatOption,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [
     provideClientHydration(),
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    DatePipe
   ],
   bootstrap: [AppComponent]
 })
