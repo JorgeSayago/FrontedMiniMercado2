@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Cliente } from '../../Domain/cliente';
 import { ClienteService } from '../../services/cliente.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-actualizar-cliente',
@@ -30,6 +31,22 @@ export class ActualizarClienteComponent {
       this.router.navigate(['pagina/listarCliente'])
       
       }
+
+  showUpdateConfirmation() {
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: 'Estás a punto de Actualizar el Cliente.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Sí, Actualizar el Cliente',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.modificar();
+        //this.loginService.logout();
+      }
+    });
+  }
 
 
 }

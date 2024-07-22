@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Cliente } from '../../Domain/cliente';
 import { Router, NavigationExtras } from '@angular/router';
 import { ClienteService } from '../../services/cliente.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-listar-cliente',
@@ -27,12 +28,32 @@ ngOnInit(): void {
  }
 
  eliminar(cliente: Cliente){
+  Swal.fire({
+    title: '¿Estás seguro?',
+    text: 'Estás a punto de Eliminar el Cliente.',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Sí, Eliminar el Cliente',
+    cancelButtonText: 'Cancelar'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      this.clienteService.delete(cliente).subscribe(data => {
+        console.log("resultado WS save", data);
+        });
+    this.reloadPage();
+    }
+  });
+  }
+
+/**
+ * eliminar(cliente: Cliente){
   this.clienteService.delete(cliente).subscribe(data => {
     console.log("resultado WS save", data);
     });
 this.reloadPage();
 
   }
+ */
 
 reloadPage(){
   let currentUrl = this.router.url
