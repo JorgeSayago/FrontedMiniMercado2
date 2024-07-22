@@ -18,7 +18,7 @@ export class ListarClienteComponent {
   let params = this.router.getCurrentNavigation()?.extras.queryParams;
     if(params){
       this.Cliente = new Cliente();
-      this.Cliente = params['cliente']
+      this.Cliente = params['Cliente']
     }
 }
 

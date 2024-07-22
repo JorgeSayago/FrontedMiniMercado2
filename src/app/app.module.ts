@@ -37,6 +37,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 
 import { DatePipe } from '@angular/common';
+import { ListarPromotionComponent } from './Page/listar-promotion/listar-promotion.component';
 
 
 @NgModule({
@@ -57,7 +58,8 @@ import { DatePipe } from '@angular/common';
     ListarUsuarioComponent,
     CrearProveedorComponent,
     ListarProveedorComponent,
-    CrearPromotionComponent
+    CrearPromotionComponent,
+    ListarPromotionComponent
   ],
   imports: [
     BrowserModule,

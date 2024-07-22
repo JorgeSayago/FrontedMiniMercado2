@@ -21,18 +21,6 @@ export class CrearPromotionComponent {
         this.promotion= params['Promotion']
       }
     }
-    /**
-     * guardar(){
-      console.log('Promocion guardada:', this.promotion);
-      this.promotionService.save(this.promotion).subscribe(data => {
-        console.log("resultado WS save", data);
-        //this.router.navigate(['pagina1/Listar'])
-      });
-      this.promotion = new Promotion()
-      alert("Promocion creada exitosamente")
-    }
-    */
-
     guardar() {
       const formattedPromotion = {
         ...this.promotion,

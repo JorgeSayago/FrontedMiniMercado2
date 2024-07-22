@@ -1,0 +1,52 @@
+<div class="container">
+    <h2>Lista De Promociones</h2>
+    <br>
+    <table mat-table [dataSource]="listadoPromotionsWS">
+    
+    <!-- Columna ID -->
+      <ng-container matColumnDef="ID">
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let Promotion" >{{Promotion.promotion_id}}</td>
+      </ng-container>
+
+      <!-- Columna Placa -->
+      <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef>Nombre</th>
+        <td mat-cell *matCellDef="let Promotion" >{{Promotion.nombre}}</td>
+      </ng-container>
+  
+      <!-- Columna Marca -->
+      <ng-container matColumnDef="descripcion">
+        <th mat-header-cell *matHeaderCellDef>Descripcion</th>
+        <td mat-cell *matCellDef="let Promotion">{{Promotion.descripcion}}</td>
+      </ng-container>
+  
+      <!-- Columna Modelo -->
+      <ng-container matColumnDef="fechainicio">
+        <th mat-header-cell *matHeaderCellDef>Fecha Inicio</th>
+        <td mat-cell *matCellDef="let Promotion">{{Promotion.fechaInicio}}</td>
+      </ng-container>
+
+      <!-- Columna Modelo -->
+      <ng-container matColumnDef="fechafin">
+        <th mat-header-cell *matHeaderCellDef>Fecha Fin</th>
+        <td mat-cell *matCellDef="let Promotion">{{Promotion.fechaFin}}</td>
+      </ng-container>
+
+  
+      <!-- Acciones -->
+      <ng-container matColumnDef="acciones">
+        <th mat-header-cell *matHeaderCellDef>Acciones</th>
+        <td mat-cell *matCellDef="let carro">
+          <a><mat-icon >delete</mat-icon> </a>
+          <br>
+          <a><mat-icon >mode_edit</mat-icon>  </a>
+          
+        </td>
+      </ng-container>
+  
+      <!-- Define las columnas que se mostrarán -->
+      <tr mat-header-row *matHeaderRowDef="['ID','nombre', 'descripcion', 'fechainicio', 'fechafin','acciones']"></tr>
+      <tr mat-row *matRowDef="let row; columns: ['ID','nombre', 'descripcion', 'fechainicio', 'fechafin','acciones'];"></tr>
+    </table>
+  </div>
