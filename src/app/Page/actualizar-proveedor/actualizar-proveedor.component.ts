@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Proveedor } from '../../Domain/proveedor';
 import { ProveedorService } from '../../services/proveedor.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-actualizar-proveedor',
@@ -27,7 +28,23 @@ export class ActualizarProveedorComponent {
       this.proveedorService.update(this.proveedor).subscribe(data => {
         console.log("Resultado WS SAVE", data);
       });
-      //this.router.navigate(['pagina/listarCliente'])
+      this.router.navigate(['pagina/listarProveedor'])
       }
+
+  showUpdateConfirmation() {
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: 'Estás a punto de Actualizar el Proveedor.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Sí, Actualizar el Proveedor',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.modificar();
+        //this.loginService.logout();
+      }
+    });
+  }
 
 }

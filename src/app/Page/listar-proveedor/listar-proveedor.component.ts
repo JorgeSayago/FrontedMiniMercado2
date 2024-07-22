@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
 import { Proveedor } from '../../Domain/proveedor';
 import { ProveedorService } from '../../services/proveedor.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-listar-proveedor',
@@ -25,12 +26,23 @@ export class ListarProveedorComponent {
 ngOnInit(): void {
   this.listadoProveedoresWS= this.proveedorService.getAll();
  }
- eliminar(proveedor: Proveedor){
-  this.proveedorService.delete(proveedor).subscribe(data => {
-    console.log("resultado WS save", data);
-    });
-this.reloadPage();
 
+eliminar(proveedor: Proveedor){
+  Swal.fire({
+    title: '¿Estás seguro?',
+    text: 'Estás a punto de Eliminar el Proveedor.',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Sí, Eliminar el Proveedor',
+    cancelButtonText: 'Cancelar'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      this.proveedorService.delete(proveedor).subscribe(data => {
+        console.log("resultado WS save", data);
+        });
+    this.reloadPage();
+    }
+  });
   }
 
 reloadPage(){
