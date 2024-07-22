@@ -15,7 +15,7 @@
 }
 
 .logo {
-  height: 130px;
+  height: 75px;
   margin-right: 10px;
 }
 
@@ -26,12 +26,12 @@
 
 /* Estilos para los enlaces */
 .header a {
-  color: #757575; /* Color gris deseado */
+  color: whitesmoke; /* Color gris deseado */
   text-decoration: none; /* Quita subrayado por defecto */
   margin-left: 20px; /* Espacio entre enlaces */
 }
 
 .header a:hover {
-  color: #424242; /* Cambia color al pasar el ratón */
+  color: white; /* Cambia color al pasar el ratón */
 }
 
