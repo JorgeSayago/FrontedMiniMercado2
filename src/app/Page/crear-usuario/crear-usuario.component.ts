@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { UsuarioService } from '../../services/usuario.service';
 import { Usuario } from '../../Domain/usuario';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-crear-usuario',
@@ -29,7 +31,18 @@ export class CrearUsuarioComponent {
         //this.router.navigate(['pagina1/Listar'])
       });
       this.usuario = new Usuario()
-      alert("Usuario creado exitosamente")
+      //alert("Usuario creado exitosamente")
+      this.showUserCreatedAlert();
     }
+
+    showUserCreatedAlert() {
+      Swal.fire({
+        icon: 'success',
+        title: '¡Éxito!',
+        text: 'Usuario creado exitosamente.',
+        confirmButtonText: 'Aceptar'
+      });
+    }
+    
 
 }
