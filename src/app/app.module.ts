@@ -41,6 +41,7 @@ import { ListarPromotionComponent } from './Page/listar-promotion/listar-promoti
 import { ActualizarProductoComponent } from './Page/actualizar-producto/actualizar-producto.component';
 import { ActualizarProveedorComponent } from './Page/actualizar-proveedor/actualizar-proveedor.component';
 import { ActualizarUsuarioComponent } from './Page/actualizar-usuario/actualizar-usuario.component';
+import { ActualizarPromotionComponent } from './Page/actualizar-promotion/actualizar-promotion.component';
 
 
 @NgModule({
@@ -65,7 +66,8 @@ import { ActualizarUsuarioComponent } from './Page/actualizar-usuario/actualizar
     ListarPromotionComponent,
     ActualizarProductoComponent,
     ActualizarProveedorComponent,
-    ActualizarUsuarioComponent
+    ActualizarUsuarioComponent,
+    ActualizarPromotionComponent
   ],
   imports: [
     BrowserModule,

@@ -20,6 +20,7 @@ import { ListarPromotionComponent } from './Page/listar-promotion/listar-promoti
 import { ActualizarProductoComponent } from './Page/actualizar-producto/actualizar-producto.component';
 import { ActualizarProveedorComponent } from './Page/actualizar-proveedor/actualizar-proveedor.component';
 import { ActualizarUsuarioComponent } from './Page/actualizar-usuario/actualizar-usuario.component';
+import { ActualizarPromotionComponent } from './Page/actualizar-promotion/actualizar-promotion.component';
 
 const routes: Routes = [
   { path:"pagina/CrearProducto",component:ProductoComponent, canActivate: [AuthGuard]},
@@ -39,8 +40,8 @@ const routes: Routes = [
   { path:"pagina/pricipal",component:CabeceraComponent, canActivate: [AuthGuard]},
   { path:"pagina/crearPromocion",component:CrearPromotionComponent, canActivate: [AuthGuard]},
   { path:"pagina/listarPromocion",component:ListarPromotionComponent, canActivate: [AuthGuard]},
-  { path:"pagina/ActualizarUsuario",component:ActualizarUsuarioComponent, canActivate: [AuthGuard]}
-
+  { path:"pagina/ActualizarUsuario",component:ActualizarUsuarioComponent, canActivate: [AuthGuard]},
+  { path:"pagina/ActualizarPromotion",component: ActualizarPromotionComponent, canActivate: [AuthGuard]}
 
 ];
 
