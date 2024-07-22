@@ -40,6 +40,7 @@ import { DatePipe } from '@angular/common';
 import { ListarPromotionComponent } from './Page/listar-promotion/listar-promotion.component';
 import { ActualizarProductoComponent } from './Page/actualizar-producto/actualizar-producto.component';
 import { ActualizarProveedorComponent } from './Page/actualizar-proveedor/actualizar-proveedor.component';
+import { ActualizarUsuarioComponent } from './Page/actualizar-usuario/actualizar-usuario.component';
 
 
 @NgModule({
@@ -63,7 +64,8 @@ import { ActualizarProveedorComponent } from './Page/actualizar-proveedor/actual
     CrearPromotionComponent,
     ListarPromotionComponent,
     ActualizarProductoComponent,
-    ActualizarProveedorComponent
+    ActualizarProveedorComponent,
+    ActualizarUsuarioComponent
   ],
   imports: [
     BrowserModule,

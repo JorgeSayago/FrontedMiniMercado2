@@ -17,4 +17,14 @@ export class UsuarioService {
     return this.http.get<any>("http://localhost:8001/user/list_users");
    }
 
+   delete(usuario: Usuario) {
+    const url = `http://localhost:8001/user`;
+    return this.http.delete(url ,{ body: usuario });
+  }
+
+  update(usuario: Usuario) {
+    const url = `http://localhost:8001/user`;
+    return this.http.put(url, usuario);
+  }
+
 }

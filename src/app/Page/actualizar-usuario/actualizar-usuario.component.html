@@ -1,0 +1,30 @@
+<div id="contact">
+    <mat-card>
+      <mat-card-title>Actualizar Usuario</mat-card-title>
+      <mat-card-content>
+        <form>
+          <mat-form-field appearance="fill">
+            <mat-label>Nombre</mat-label>
+            <input matInput [(ngModel)]="usuario.nombre" name="nombre del usuario" type="text" >
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Correo</mat-label>
+            <input matInput [(ngModel)]="usuario.correo" name="Correo del Usuario" type="text" >
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Contraseña</mat-label>
+            <input matInput [(ngModel)]="usuario.contrasenia" name="Contrasenia" type="text" >
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Rol</mat-label>
+            <mat-select [(ngModel)]="usuario.rol" name="rol" >
+              <mat-option *ngFor="let rol of roles" [value]="rol">
+                {{ rol }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <button mat-raised-button color="primary" (click)="modificar()">Actualizar</button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
