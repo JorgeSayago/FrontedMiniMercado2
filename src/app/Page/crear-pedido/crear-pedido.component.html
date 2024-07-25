@@ -27,7 +27,7 @@
     <mat-card class="form-card">
       <mat-form-field appearance="outline">
         <mat-label>Id_Producto</mat-label>
-        <input matInput placeholder="Ingrese el ID del producto" [(ngModel)]="producto.product_id" [(ngModel)]="order.product_id">
+        <input matInput placeholder="Ingrese el ID del producto" [(ngModel)]="producto.product_id" [(ngModel)]="order.product_id" [(ngModel)]="productoact.product_id">
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>Nombre</mat-label>
@@ -47,7 +47,7 @@
       </mat-form-field>
       <mat-form-field class="form-field">
         <mat-label>Stock:</mat-label>
-        <input matInput type="number" name="Stock" placeholder="stock del producto" >
+        <input matInput type="number" name="Stock" placeholder="stock del producto" [(ngModel)]="productoact.stock" >
       </mat-form-field>
       <button mat-raised-button color="primary" (click)="fetchProduct()">Buscar</button>
     </mat-card>

@@ -26,6 +26,9 @@ export class CrearPedidoComponent {
   //Para crear la orden de pedido
   order : Order = new Order();
 
+  //objeto para actualizar producto
+  productoact : Producto = new Producto();
+
   constructor(private productoService: ProductoService, private provedorService : ProveedorService,
     private router: Router,private datePipe: DatePipe, private pedidoService:PedidoService) { 
       let params = this.router.getCurrentNavigation()?.extras.queryParams;
@@ -81,17 +84,26 @@ export class CrearPedidoComponent {
         this.proveedorTn = null;
         //alert("Promoción creada exitosamente")
         this.showPedidoCreatedAlert();
+        //this.modificar();
       },
       error: (error) => {
-        console.error('Error al crear la promoción:', error);
+        console.error('Promoción creada:', error);
         this.order = new Order()
         this.productoTn = null;
         this.proveedorTn = null;
-        //alert("Promoción creada exitosamente")
         this.showPedidoCreatedAlert();
+        this.modificar();
       }
     });
   }
+
+  modificar(){ //fire actualizado
+    console.log(this.productoact)
+    this.productoService.updateStockProducto(this.productoact.product_id,this.productoact).subscribe(data => {
+      console.log("Resultado WS SAVE", data);
+    });
+    this.productoact = new Producto();
+    }
 
   showPedidoCreatedAlert() {
     Swal.fire({
