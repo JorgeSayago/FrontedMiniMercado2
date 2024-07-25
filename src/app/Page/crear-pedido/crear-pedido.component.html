@@ -4,24 +4,25 @@
     <mat-card class="form-card">
       <mat-form-field appearance="outline">
         <mat-label>Id_Proveedor</mat-label>
-        <input matInput placeholder="Ingrese el ID del proveedor">
+        <input matInput placeholder="Ingrese el ID del proveedor" [(ngModel)]="proveedor.supplier_id">
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>Nombre</mat-label>
-        <input matInput placeholder="Nombre" readonly>
+        <input matInput placeholder="Nombre" [value]="proveedorTn?.nombre" readonly>
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>Contacto</mat-label>
-        <input matInput placeholder="Contacto" readonly>
+        <input matInput placeholder="Contacto" [value]="proveedorTn?.contacto" readonly>
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>Dirección</mat-label>
-        <input matInput placeholder="Dirección" readonly>
+        <input matInput placeholder="Dirección" [value]="proveedorTn?.direccion" readonly>
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>Teléfono</mat-label>
-        <input matInput placeholder="Teléfono" readonly>
+        <input matInput placeholder="Teléfono" [value]="proveedorTn?.telefono" readonly>
       </mat-form-field>
+      <button mat-raised-button color="primary" (click)="fetchProvedor()">Buscar</button>
     </mat-card>
     <mat-card class="form-card">
       <mat-form-field appearance="outline">

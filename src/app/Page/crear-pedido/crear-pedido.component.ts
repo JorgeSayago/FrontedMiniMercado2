@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { ProductoService } from '../../services/producto.service';
 import { Producto } from '../../Domain/producto';
+import { Proveedor } from '../../Domain/proveedor';
+import { ProveedorService } from '../../services/proveedor.service';
 
 @Component({
   selector: 'app-crear-pedido',
@@ -8,17 +10,30 @@ import { Producto } from '../../Domain/producto';
   styleUrl: './crear-pedido.component.css'
 })
 export class CrearPedidoComponent {
+  //Para buscar el producto
   producto : Producto = new Producto();
-  //productoT: Producto = new Producto();
   productoTn: Producto | null = null;
+  //Para buscar el proveedor
+  proveedor : Proveedor = new Proveedor();
+  proveedorTn: Proveedor | null = null;
 
-  constructor(private productoService: ProductoService) { }
+  constructor(private productoService: ProductoService, private provedorService : ProveedorService) { }
   fetchProduct() {
     if (this.producto.product_id) {
 
       this.productoService.getProductoById(this.producto.product_id).subscribe(data => {
         console.log("resultado WS save", data);
         this.productoTn = data;
+      });
+    }
+  }
+
+  fetchProvedor() {
+    if (this.proveedor.supplier_id) {
+
+      this.provedorService.getProveedorById(this.proveedor.supplier_id).subscribe(data => {
+        console.log("resultado WS save", data);
+        this.proveedorTn = data;
       });
     }
   }

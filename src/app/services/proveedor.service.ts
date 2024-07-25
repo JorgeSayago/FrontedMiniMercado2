@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Proveedor } from '../Domain/proveedor';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -28,4 +29,9 @@ export class ProveedorService {
     const url = `http://localhost:8001/supplier/updateSup`;
     return this.http.put(url, proveedor);
   }
+
+  getProveedorById(id: number): Observable<Proveedor>{
+    return this.http.get<Proveedor>(`http://localhost:8001/supplier/search_supplier_by_ID/${id}`)
+  }
+
 }
