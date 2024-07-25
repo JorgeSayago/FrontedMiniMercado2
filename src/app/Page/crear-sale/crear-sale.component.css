@@ -1,0 +1,38 @@
+.card {
+    padding: 20px;
+    max-width: 800px;
+    margin: 20px auto;
+  }
+  
+  .form-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .form-field {
+    flex: 1;
+    min-width: 200px;
+    margin-right: 20px;
+  }
+  
+  .form-field:last-child {
+    margin-right: 0;
+  }
+  
+  button {
+    margin-top: 20px;
+    align-self: center;
+  }
+  
+  h2, h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+  
+  mat-divider {
+    margin-bottom: 20px;
+  }
+  

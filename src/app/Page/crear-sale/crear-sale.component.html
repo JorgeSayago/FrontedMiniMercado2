@@ -1,0 +1,75 @@
+<mat-card class="card">
+    <h2>Generar Venta</h2>
+    <mat-divider></mat-divider>
+    <h3>Cabecera de Venta</h3>
+    <div class="form-row">
+      <mat-form-field appearance="fill" class="form-field">
+        <mat-label>Numero Venta</mat-label>
+        <input matInput placeholder="Ingrese Numero Venta">
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="form-field">
+        <mat-label>Fecha de Venta</mat-label>
+        <input matInput [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="form-row">
+      <mat-form-field appearance="fill" class="form-field">
+        <mat-label>Cedula del Cliente</mat-label>
+        <input matInput placeholder="Ingrese Cedula del Cliente">
+      </mat-form-field>
+      <button mat-raised-button color="primary">Buscar</button>
+    </div>
+    <div class="form-row">
+      <mat-form-field appearance="fill" class="form-field">
+        <mat-label>Nombre del Cliente</mat-label>
+        <input matInput placeholder="Nombre del Cliente" disabled>
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="form-field">
+        <mat-label>Telefono del Cliente</mat-label>
+        <input matInput placeholder="Telefono del Cliente" disabled>
+      </mat-form-field>
+      <button mat-raised-button color="primary">Acentar Cabecera</button>
+    </div>
+    <h3>Detalle de Venta</h3>
+    <div class="form-row">
+      <mat-form-field appearance="fill" class="form-field">
+        <mat-label>ID_Cabecera</mat-label>
+        <input matInput placeholder="ID_Cabecera">
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="form-field">
+        <mat-label>ID del Producto</mat-label>
+        <input matInput placeholder="Ingrese ID del Producto">
+      </mat-form-field>
+      <button mat-raised-button color="primary">Buscar</button>
+    </div>
+    <div class="form-row">
+      <mat-form-field appearance="fill" class="form-field">
+        <mat-label>Nombre del Producto</mat-label>
+        <input matInput placeholder="Nombre del Producto" disabled>
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="form-field">
+        <mat-label>Cantidad</mat-label>
+        <input matInput placeholder="Cantidad">
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="form-field">
+        <mat-label>Stock del Producto</mat-label>
+        <input matInput placeholder="Stock del Producto" disabled>
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="form-field">
+        <mat-label>Precio</mat-label>
+        <input matInput placeholder="Precio">
+      </mat-form-field>
+      <button mat-raised-button color="primary">Acentar Detalle</button>
+    </div>
+    <h3>Valor a Pagar</h3>
+    <div class="form-row">
+      <mat-form-field appearance="fill" class="form-field">
+        <mat-label>Total a Pagar</mat-label>
+        <input matInput placeholder="Total a Pagar" disabled>
+      </mat-form-field>
+      <button mat-raised-button color="primary">Guardar Venta</button>
+    </div>
+  </mat-card>
+  

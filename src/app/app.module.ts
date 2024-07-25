@@ -44,6 +44,10 @@ import { ActualizarUsuarioComponent } from './Page/actualizar-usuario/actualizar
 import { ActualizarPromotionComponent } from './Page/actualizar-promotion/actualizar-promotion.component';
 import { CrearPedidoComponent } from './Page/crear-pedido/crear-pedido.component';
 import { ListarPedidoComponent } from './Page/listar-pedido/listar-pedido.component';
+import { CrearSaleComponent } from './Page/crear-sale/crear-sale.component';
+
+import { MatDividerModule } from '@angular/material/divider';
+
 
 
 @NgModule({
@@ -71,7 +75,8 @@ import { ListarPedidoComponent } from './Page/listar-pedido/listar-pedido.compon
     ActualizarUsuarioComponent,
     ActualizarPromotionComponent,
     CrearPedidoComponent,
-    ListarPedidoComponent
+    ListarPedidoComponent,
+    CrearSaleComponent
   ],
   imports: [
     BrowserModule,
@@ -90,7 +95,8 @@ import { ListarPedidoComponent } from './Page/listar-pedido/listar-pedido.compon
     MatSelect,
     MatOption,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatDividerModule
   ],
   providers: [
     provideClientHydration(),
