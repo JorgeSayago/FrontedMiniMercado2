@@ -1,0 +1,69 @@
+<div class="container">
+  <h1>Generar Orden</h1>
+  <div class="form-group">
+    <mat-card class="form-card">
+      <mat-form-field appearance="outline">
+        <mat-label>Id_Proveedor</mat-label>
+        <input matInput placeholder="Ingrese el ID del proveedor">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Nombre</mat-label>
+        <input matInput placeholder="Nombre" readonly>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Contacto</mat-label>
+        <input matInput placeholder="Contacto" readonly>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Dirección</mat-label>
+        <input matInput placeholder="Dirección" readonly>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Teléfono</mat-label>
+        <input matInput placeholder="Teléfono" readonly>
+      </mat-form-field>
+    </mat-card>
+    <mat-card class="form-card">
+      <mat-form-field appearance="outline">
+        <mat-label>Id_Producto</mat-label>
+        <input matInput placeholder="Ingrese el ID del producto">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Nombre</mat-label>
+        <input matInput placeholder="Nombre del producto" readonly>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Descripción</mat-label>
+        <input matInput placeholder="Descripción" readonly>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Categoría</mat-label>
+        <input matInput placeholder="Categoría" readonly>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Precio Unitario</mat-label>
+        <input matInput placeholder="Precio Unitario" readonly>
+      </mat-form-field>
+      <mat-form-field class="form-field">
+        <mat-label>Stock:</mat-label>
+        <input matInput type="number" name="Stock" placeholder="stock del producto" >
+      </mat-form-field>
+    </mat-card>
+  </div>
+  <div class="form-group">
+    <mat-form-field appearance="fill">
+      <mat-label>Fecha de Pedido</mat-label>
+      <input matInput [matDatepicker]="startPicker" name="fechaPedido">
+      <mat-datepicker-toggle matIconSuffix [for]="startPicker"></mat-datepicker-toggle>
+      <mat-datepicker #startPicker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Fecha de Entrega</mat-label>
+      <input matInput [matDatepicker]="endPicker" name="fechaEntrega">
+      <mat-datepicker-toggle matIconSuffix [for]="endPicker"></mat-datepicker-toggle>
+      <mat-datepicker #endPicker></mat-datepicker>
+    </mat-form-field>
+  </div>
+  <button mat-raised-button color="primary">Generar Orden</button>
+</div>
