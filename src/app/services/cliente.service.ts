@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Cliente } from '../Domain/cliente';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -33,6 +34,10 @@ export class ClienteService {
   getClienteById(id: number) {
     const url = `http://localhost:8001/client/search_client_by_ID/${id}`;
     return this.http.get<Cliente>(url);
+  }
+
+  getClienteByCedula(cedula: string): Observable<Cliente>{
+    return this.http.get<Cliente>(`http://localhost:8001/client/search_client_by_personalID/${cedula}`)
   }
   
 }

@@ -5,11 +5,11 @@
     <div class="form-row">
       <mat-form-field appearance="fill" class="form-field">
         <mat-label>Numero Venta</mat-label>
-        <input matInput placeholder="Ingrese Numero Venta">
+        <input matInput placeholder="Ingrese Numero Venta" [(ngModel)]="sale.numero_venta">
       </mat-form-field>
       <mat-form-field appearance="fill" class="form-field">
         <mat-label>Fecha de Venta</mat-label>
-        <input matInput [matDatepicker]="picker">
+        <input matInput [matDatepicker]="picker" [(ngModel)]="sale.fecha_venta">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
@@ -17,24 +17,24 @@
     <div class="form-row">
       <mat-form-field appearance="fill" class="form-field">
         <mat-label>Cedula del Cliente</mat-label>
-        <input matInput placeholder="Ingrese Cedula del Cliente">
+        <input matInput placeholder="Ingrese Cedula del Cliente"  [(ngModel)]="cliente.cedula">
       </mat-form-field>
-      <button mat-raised-button color="primary">Buscar</button>
+      <button mat-raised-button color="primary" (click)="buscarCliente()">Buscar</button>
     </div>
     <div class="form-row">
         <mat-form-field appearance="fill" class="form-field">
             <mat-label>ID del Cliente</mat-label>
-            <input matInput placeholder="ID del Cliente" disabled>
+            <input matInput placeholder="ID del Cliente" [value]="clienteTn?.cient_id " [(ngModel)]="sale.cliente_id" readonly>
           </mat-form-field>
         <mat-form-field appearance="fill" class="form-field">
         <mat-label>Nombre del Cliente</mat-label>
-        <input matInput placeholder="Nombre del Cliente" disabled>
+        <input matInput placeholder="Nombre del Cliente" [value]="clienteTn?.nombre" readonly>
       </mat-form-field>
       <mat-form-field appearance="fill" class="form-field">
         <mat-label>Telefono del Cliente</mat-label>
-        <input matInput placeholder="Telefono del Cliente" disabled>
+        <input matInput placeholder="Telefono del Cliente" [value]="clienteTn?.telefono" readonly>
       </mat-form-field>
-      <button mat-raised-button color="primary">Acentar Cabecera</button>
+      <button mat-raised-button color="primary" (click)="guardar()">Acentar Cabecera</button>
     </div>
     <h3>Detalle de Venta</h3>
     <div class="form-row">
