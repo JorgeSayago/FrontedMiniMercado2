@@ -4,7 +4,7 @@
     <mat-card class="form-card">
       <mat-form-field appearance="outline">
         <mat-label>Id_Proveedor</mat-label>
-        <input matInput placeholder="Ingrese el ID del proveedor" [(ngModel)]="proveedor.supplier_id">
+        <input matInput placeholder="Ingrese el ID del proveedor" [(ngModel)]="proveedor.supplier_id" [(ngModel)]="order.proveedorid">
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>Nombre</mat-label>
@@ -27,7 +27,7 @@
     <mat-card class="form-card">
       <mat-form-field appearance="outline">
         <mat-label>Id_Producto</mat-label>
-        <input matInput placeholder="Ingrese el ID del producto" [(ngModel)]="producto.product_id">
+        <input matInput placeholder="Ingrese el ID del producto" [(ngModel)]="producto.product_id" [(ngModel)]="order.product_id">
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>Nombre</mat-label>
@@ -55,17 +55,17 @@
   <div class="form-group">
     <mat-form-field appearance="fill">
       <mat-label>Fecha de Pedido</mat-label>
-      <input matInput [matDatepicker]="startPicker" name="fechaPedido">
+      <input matInput [matDatepicker]="startPicker" [(ngModel)]="order.fechaPedido" name="fechaPedido">
       <mat-datepicker-toggle matIconSuffix [for]="startPicker"></mat-datepicker-toggle>
       <mat-datepicker #startPicker></mat-datepicker>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
       <mat-label>Fecha de Entrega</mat-label>
-      <input matInput [matDatepicker]="endPicker" name="fechaEntrega">
+      <input matInput [matDatepicker]="endPicker" [(ngModel)]="order.fechaEntrega" name="fechaEntrega">
       <mat-datepicker-toggle matIconSuffix [for]="endPicker"></mat-datepicker-toggle>
       <mat-datepicker #endPicker></mat-datepicker>
     </mat-form-field>
   </div>
-  <button mat-raised-button color="primary">Generar Orden</button>
+  <button mat-raised-button color="primary" (click)="guardar()">Generar Orden</button>
 </div>
