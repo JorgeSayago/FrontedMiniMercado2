@@ -26,28 +26,29 @@
     <mat-card class="form-card">
       <mat-form-field appearance="outline">
         <mat-label>Id_Producto</mat-label>
-        <input matInput placeholder="Ingrese el ID del producto">
+        <input matInput placeholder="Ingrese el ID del producto" [(ngModel)]="producto.product_id">
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>Nombre</mat-label>
-        <input matInput placeholder="Nombre del producto" readonly>
+        <input matInput placeholder="Nombre del producto" [value]="productoTn?.nombre" readonly>
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>Descripción</mat-label>
-        <input matInput placeholder="Descripción" readonly>
+        <input matInput placeholder="Descripción" [value]="productoTn?.descripcion" readonly>
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>Categoría</mat-label>
-        <input matInput placeholder="Categoría" readonly>
+        <input matInput placeholder="Categoría" [value]="productoTn?.categoria" readonly>
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>Precio Unitario</mat-label>
-        <input matInput placeholder="Precio Unitario" readonly>
+        <input matInput placeholder="Precio Unitario" [value]="productoTn?.precioUnitario" readonly>
       </mat-form-field>
       <mat-form-field class="form-field">
         <mat-label>Stock:</mat-label>
         <input matInput type="number" name="Stock" placeholder="stock del producto" >
       </mat-form-field>
+      <button mat-raised-button color="primary" (click)="fetchProduct()">Buscar</button>
     </mat-card>
   </div>
   <div class="form-group">
