@@ -24,16 +24,22 @@ export class CrearPedidoComponent {
       this.productoService.getProductoById(this.producto.product_id).subscribe(data => {
         console.log("resultado WS save", data);
         this.productoTn = data;
+      },error => {
+        console.error('Error fetching product:', error);
+        this.productoTn = null;  // Limpia los campos si no se encuentra el producto
       });
     }
   }
 
   fetchProvedor() {
     if (this.proveedor.supplier_id) {
-
       this.provedorService.getProveedorById(this.proveedor.supplier_id).subscribe(data => {
         console.log("resultado WS save", data);
         this.proveedorTn = data;
+      },
+      error => {
+        console.error('Error fetching product:', error);
+        this.proveedorTn = null;  // Limpia los campos si no se encuentra el producto
       });
     }
   }
