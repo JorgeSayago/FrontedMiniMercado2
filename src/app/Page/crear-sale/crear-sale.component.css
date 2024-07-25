@@ -35,4 +35,14 @@
   mat-divider {
     margin-bottom: 20px;
   }
+
+  button[mat-raised-button] {
+    transition: background-color 0.3s ease;
+    background-color: #444; /* Cambiado para que coincida con el fondo del submenú */
+    color: #fff; /* Mantener blanco para que sea legible */
+  }
   
+  button[mat-raised-button]:hover {
+    background-color: #fff; /* Cambiado para que coincida con el hover del menú */
+    color: #333; /* Cambiado para que coincida con el hover del menú */
+  }

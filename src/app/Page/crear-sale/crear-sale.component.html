@@ -22,7 +22,11 @@
       <button mat-raised-button color="primary">Buscar</button>
     </div>
     <div class="form-row">
-      <mat-form-field appearance="fill" class="form-field">
+        <mat-form-field appearance="fill" class="form-field">
+            <mat-label>ID del Cliente</mat-label>
+            <input matInput placeholder="ID del Cliente" disabled>
+          </mat-form-field>
+        <mat-form-field appearance="fill" class="form-field">
         <mat-label>Nombre del Cliente</mat-label>
         <input matInput placeholder="Nombre del Cliente" disabled>
       </mat-form-field>
@@ -49,17 +53,20 @@
         <mat-label>Nombre del Producto</mat-label>
         <input matInput placeholder="Nombre del Producto" disabled>
       </mat-form-field>
-      <mat-form-field appearance="fill" class="form-field">
-        <mat-label>Cantidad</mat-label>
-        <input matInput placeholder="Cantidad">
-      </mat-form-field>
+      
       <mat-form-field appearance="fill" class="form-field">
         <mat-label>Stock del Producto</mat-label>
         <input matInput placeholder="Stock del Producto" disabled>
       </mat-form-field>
+
       <mat-form-field appearance="fill" class="form-field">
-        <mat-label>Precio</mat-label>
-        <input matInput placeholder="Precio">
+        <mat-label>Precio Unitario</mat-label>
+        <input matInput placeholder="Stock del Producto" disabled>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="form-field">
+        <mat-label>Cantidad</mat-label>
+        <input matInput placeholder="Cantidad">
       </mat-form-field>
       <button mat-raised-button color="primary">Acentar Detalle</button>
     </div>
