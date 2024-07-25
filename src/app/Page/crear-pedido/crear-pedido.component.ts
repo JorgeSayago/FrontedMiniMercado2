@@ -42,9 +42,11 @@ export class CrearPedidoComponent {
       this.productoService.getProductoById(this.producto.product_id).subscribe(data => {
         console.log("resultado WS save", data);
         this.productoTn = data;
+        this.showProductoEncontrado();
       },error => {
         console.error('Error fetching product:', error);
         this.productoTn = null;  // Limpia los campos si no se encuentra el producto
+        this.showProductoNoEncontrado();
       });
     }
   }
@@ -54,10 +56,12 @@ export class CrearPedidoComponent {
       this.provedorService.getProveedorById(this.proveedor.supplier_id).subscribe(data => {
         console.log("resultado WS save", data);
         this.proveedorTn = data;
+        this.showProveedorEncontrado();
       },
       error => {
         console.error('Error fetching product:', error);
         this.proveedorTn = null;  // Limpia los campos si no se encuentra el producto
+        this.showProveedorNoEncontrado();
       });
     }
   }
@@ -76,7 +80,7 @@ export class CrearPedidoComponent {
         this.productoTn = null;
         this.proveedorTn = null;
         //alert("Promoción creada exitosamente")
-        this.showPromotionCreatedAlert();
+        this.showPedidoCreatedAlert();
       },
       error: (error) => {
         console.error('Error al crear la promoción:', error);
@@ -84,12 +88,12 @@ export class CrearPedidoComponent {
         this.productoTn = null;
         this.proveedorTn = null;
         //alert("Promoción creada exitosamente")
-        this.showPromotionCreatedAlert();
+        this.showPedidoCreatedAlert();
       }
     });
   }
 
-  showPromotionCreatedAlert() {
+  showPedidoCreatedAlert() {
     Swal.fire({
       icon: 'success',
       title: '¡Éxito!',
@@ -98,5 +102,40 @@ export class CrearPedidoComponent {
     });
   }
 
+  showProductoEncontrado(){
+    Swal.fire({
+      icon: 'success',
+      title: '¡Éxito!',
+      text: 'Producto encontrado',
+      confirmButtonText: 'Aceptar'
+    });
+  }
+
+  showProveedorEncontrado(){
+    Swal.fire({
+      icon: 'success',
+      title: '¡Éxito!',
+      text: 'Proveedor encontrado',
+      confirmButtonText: 'Aceptar'
+    });
+  }
+
+  showProductoNoEncontrado(){
+    Swal.fire({
+      icon: 'error',
+      title: '¡Qué mal!',
+      text: 'Producto no encontrado',
+      confirmButtonText: 'Aceptar'
+    });
+  }
+
+  showProveedorNoEncontrado(){
+    Swal.fire({
+      icon: 'error',
+      title: '¡Qué mal!',
+      text: 'Proveedor no encontrado',
+      confirmButtonText: 'Aceptar'
+    });
+  }
    
 }
