@@ -12,4 +12,14 @@ export class PedidoService {
   save(order: any) {
     return this.http.post<any>("http://localhost:8001/order/create_order", order)
   }
+
+  getAll(){
+    return this.http.get<any>("http://localhost:8001/order/list_orders");
+   }
+
+   delete(order: Order) {
+    const url = `http://localhost:8001/order/delete_order`;
+    return this.http.delete(url ,{ body: order });
+  }
+
 }

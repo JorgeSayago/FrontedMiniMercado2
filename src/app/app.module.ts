@@ -43,6 +43,7 @@ import { ActualizarProveedorComponent } from './Page/actualizar-proveedor/actual
 import { ActualizarUsuarioComponent } from './Page/actualizar-usuario/actualizar-usuario.component';
 import { ActualizarPromotionComponent } from './Page/actualizar-promotion/actualizar-promotion.component';
 import { CrearPedidoComponent } from './Page/crear-pedido/crear-pedido.component';
+import { ListarPedidoComponent } from './Page/listar-pedido/listar-pedido.component';
 
 
 @NgModule({
@@ -69,7 +70,8 @@ import { CrearPedidoComponent } from './Page/crear-pedido/crear-pedido.component
     ActualizarProveedorComponent,
     ActualizarUsuarioComponent,
     ActualizarPromotionComponent,
-    CrearPedidoComponent
+    CrearPedidoComponent,
+    ListarPedidoComponent
   ],
   imports: [
     BrowserModule,
