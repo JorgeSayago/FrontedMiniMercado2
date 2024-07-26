@@ -44,6 +44,9 @@ export class CrearSaleComponent {
   //Objeto para asentar los detalles
   SaleDetailTabla : SaleDetail = new SaleDetail();
 
+  //Producto a devolver producto
+  productodev: Producto = new Producto();
+
   constructor(private productoService : ProductoService, private saledetailService : SaledetailService,
     private clienteService : ClienteService,private saleService:SaleService ,private datePipe: DatePipe,private router: Router){
       let params = this.router.getCurrentNavigation()?.extras.queryParams;
@@ -244,11 +247,23 @@ export class CrearSaleComponent {
         console.error('Error fetching product:', error);
         this.productoTn = null;  // Limpia los campos si no se encuentra el producto
         this.listarTablaDetalles();
+        this.devolucionProducto(saledetaile);
       });
       }
     });
     }
 
+  devolucionProducto(saledetailDevolver : SaleDetail){ 
+    const formattedProducto = {
+      ...this.productodev,
+      stock : saledetailDevolver.cantidad,
+      product_id: saledetailDevolver.product_id
+    };
+    this.productoService.updateStockProducto(saledetailDevolver.product_id,formattedProducto).subscribe(data => {
+      console.log("Resultado WS SAVE", data);
+      this.productodev = new Producto();
+    });
+    }
 
   
 }
