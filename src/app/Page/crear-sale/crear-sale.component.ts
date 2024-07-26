@@ -47,6 +47,9 @@ export class CrearSaleComponent {
   //Producto a devolver producto
   productodev: Producto = new Producto();
 
+  //SaleActualizar
+  saleact: Sale = new Sale();
+
   //Precio total
   totalPrecio: number = 0;
 
@@ -285,6 +288,20 @@ obtenerTotalPrecio(saleId: number){
   );
 }
 
-
+//Proceso para actualizar precio
   
+actulizarPrecioVenta(){ 
+  const id_Cabecera: number = this.salebTn?.sale_id ?? 0;
+  const totalPrecio: number = this.totalPrecio;
+  const formattedSale = {
+    ...this.saleact,
+    sale_id:id_Cabecera,
+    total: totalPrecio,
+    fecha_venta: this.datePipe.transform(this.sale.fecha_venta, 'yyyy-MM-dd HH:mm:ss')
+  };
+  this.saleService.updateTotal(id_Cabecera,formattedSale).subscribe(data => {
+    console.log("Resultado WS SAVE", data);
+    this.productodev = new Producto();
+  });
+    }
 }

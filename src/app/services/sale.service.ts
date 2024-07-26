@@ -18,4 +18,9 @@ export class SaleService {
     return this.http.get<Sale>(`http://localhost:8001/sale/search_sale_by_numeroV/${numeroVenta}`)
   }
 
+  updateTotal(id: number,sale: any) {
+    const url = `http://localhost:8001/sale/update_saleV1/${id}`;
+    return this.http.put(url, sale);
+  }
+
 }

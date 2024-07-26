@@ -21,5 +21,4 @@ export class PedidoService {
     const url = `http://localhost:8001/order/delete_order`;
     return this.http.delete(url ,{ body: order });
   }
-
 }
