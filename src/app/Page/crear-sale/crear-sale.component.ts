@@ -302,6 +302,36 @@ actulizarPrecioVenta(){
   this.saleService.updateTotal(id_Cabecera,formattedSale).subscribe(data => {
     console.log("Resultado WS SAVE", data);
     this.productodev = new Producto();
+  },error => {
+    console.error('Error fetching product:', error);
+    this.reloadPage();
   });
     }
+//Actualizacion pagina 
+reloadPage(){
+  let currentUrl = this.router.url
+  this.router.navigateByUrl("/", {skipLocationChange: true}).then(
+    () =>{
+      this.router.navigate([currentUrl])
+    }
+  )
+ }
+
+
+ confiracionActualizacion(){
+  Swal.fire({
+    title: '¿Estás seguro?',
+    text: 'Estás a punto de Finalizar la Venta.',
+    icon: 'success',
+    showCancelButton: true,
+    confirmButtonText: 'Sí, Finalizar la Venta',
+    cancelButtonText: 'Cancelar'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      this.actulizarPrecioVenta();
+    }
+  });
+ }
+
+
 }
