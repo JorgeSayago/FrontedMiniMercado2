@@ -41,8 +41,22 @@ export class CrearSaleComponent {
   //Para listar los detalles
   listadoDetallesWS:any;
 
+  //Objeto para asentar los detalles
+  SaleDetailTabla : SaleDetail = new SaleDetail();
+
   constructor(private productoService : ProductoService, private saledetailService : SaledetailService,
-    private clienteService : ClienteService,private saleService:SaleService ,private datePipe: DatePipe){}
+    private clienteService : ClienteService,private saleService:SaleService ,private datePipe: DatePipe,private router: Router){
+      let params = this.router.getCurrentNavigation()?.extras.queryParams;
+    if(params){
+      this.SaleDetailTabla = new SaleDetail();
+      this.SaleDetailTabla = params['SaleDetail']
+    }
+    }
+
+    listarTablaDetalles(){
+      const id_venta : number= this.salebTn?.sale_id ?? 0 ;
+      this.listadoDetallesWS = this.saledetailService.getAll(id_venta);
+    }
 
   buscarCliente() {
     if (this.cliente.cedula) {
@@ -130,6 +144,7 @@ export class CrearSaleComponent {
       error: (error) => {
         console.error('Sale creada:', error);
         this.actualizarStockVenta();
+        this.listarTablaDetalles();
         this.showSaleDetailCreatedAlert();
         this.saledetail = new SaleDetail();
         this.producto = new Producto();
@@ -212,6 +227,27 @@ export class CrearSaleComponent {
       });
     }
   }
+
+  eliminar(saledetaile: SaleDetail){
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: 'Estás a punto de Eliminar este detalle.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Sí, Eliminar el detalle',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.saledetailService.delete(saledetaile).subscribe(data => {
+          console.log("resultado WS save", data);
+          },error => {
+        console.error('Error fetching product:', error);
+        this.productoTn = null;  // Limpia los campos si no se encuentra el producto
+        this.listarTablaDetalles();
+      });
+      }
+    });
+    }
 
 
   

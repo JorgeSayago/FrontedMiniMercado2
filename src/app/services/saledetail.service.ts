@@ -13,4 +13,13 @@ export class SaledetailService {
   save(saledetail: any) {
     return this.http.post<any>("http://localhost:8001/sale-detail/create_saleDetail",saledetail)
   }
+
+  getAll(id : number){
+    return this.http.get<any>(`http://localhost:8001/sale-detail/list_salesDetallesIDVenta/${id}`);
+   }
+
+   delete(saledetail: SaleDetail) {
+    const url = `http://localhost:8001/sale-detail/delete_saleDetailV1`;
+    return this.http.delete(url ,{ body: saledetail });
+  }
 }
