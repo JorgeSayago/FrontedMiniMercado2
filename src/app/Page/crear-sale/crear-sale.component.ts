@@ -47,6 +47,9 @@ export class CrearSaleComponent {
   //Producto a devolver producto
   productodev: Producto = new Producto();
 
+  //Precio total
+  totalPrecio: number = 0;
+
   constructor(private productoService : ProductoService, private saledetailService : SaledetailService,
     private clienteService : ClienteService,private saleService:SaleService ,private datePipe: DatePipe,private router: Router){
       let params = this.router.getCurrentNavigation()?.extras.queryParams;
@@ -264,6 +267,24 @@ export class CrearSaleComponent {
       this.productodev = new Producto();
     });
     }
+
+calcularPrecioPagar(){
+  const id_Cabecera: number = this.salebTn?.sale_id ?? 0;
+  this.obtenerTotalPrecio(id_Cabecera);
+}
+
+obtenerTotalPrecio(saleId: number){
+  this.saledetailService.getTotalPriceBySaleId(saleId).subscribe(
+    (total: number) => {
+      console.log("Precio a pagar", total)
+      this.totalPrecio = total;
+    },
+    (error) => {
+      console.error('Error al obtener el total de precios', error);
+    }
+  );
+}
+
 
   
 }

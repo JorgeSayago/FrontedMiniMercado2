@@ -120,8 +120,9 @@
     <div class="form-row">
       <mat-form-field appearance="fill" class="form-field">
         <mat-label>Total a Pagar</mat-label>
-        <input matInput placeholder="Total a Pagar" disabled>
+        <input matInput placeholder="Total a Pagar" [value]="totalPrecio" readonly>
       </mat-form-field>
+      <button mat-raised-button color="primary"(click)="calcularPrecioPagar()">Calcular Precio</button>
       <button mat-raised-button color="primary">Guardar Venta</button>
     </div>
   </mat-card>
