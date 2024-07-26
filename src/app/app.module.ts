@@ -47,6 +47,7 @@ import { ListarPedidoComponent } from './Page/listar-pedido/listar-pedido.compon
 import { CrearSaleComponent } from './Page/crear-sale/crear-sale.component';
 
 import { MatDividerModule } from '@angular/material/divider';
+import { ListarSaleComponent } from './Page/listar-sale/listar-sale.component';
 
 
 
@@ -76,7 +77,8 @@ import { MatDividerModule } from '@angular/material/divider';
     ActualizarPromotionComponent,
     CrearPedidoComponent,
     ListarPedidoComponent,
-    CrearSaleComponent
+    CrearSaleComponent,
+    ListarSaleComponent
   ],
   imports: [
     BrowserModule,

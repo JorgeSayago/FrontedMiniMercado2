@@ -10,6 +10,10 @@ export class SaleService {
 
   constructor(private http: HttpClient) { }
 
+  getAll(){
+    return this.http.get<any>("http://localhost:8001/sale/list_sales");
+   }
+
   save(sale: any) {
     return this.http.post<any>("http://localhost:8001/sale/create_sale", sale)
   }

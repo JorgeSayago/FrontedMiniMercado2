@@ -1,0 +1,40 @@
+<div class="container">
+    <h2>Listado de Ventas</h2>
+    <br>
+    <table mat-table [dataSource]="listadoSalesWS">
+    
+    <!-- Columna ID -->
+      <ng-container matColumnDef="sale_id">
+        <th mat-header-cell *matHeaderCellDef>ID de La Venta</th>
+        <td mat-cell *matCellDef="let Sale" >{{Sale.sale_id}}</td>
+      </ng-container>
+
+      <!-- Columna Placa -->
+      <ng-container matColumnDef="numero_venta">
+        <th mat-header-cell *matHeaderCellDef>Número Venta</th>
+        <td mat-cell *matCellDef="let Sale" >{{Sale.numero_venta}}</td>
+      </ng-container>
+  
+      <!-- Columna Marca -->
+      <ng-container matColumnDef="cliente_id">
+        <th mat-header-cell *matHeaderCellDef>ID del Cliente</th>
+        <td mat-cell *matCellDef="let Sale">{{Sale.cliente_id}}</td>
+      </ng-container>
+  
+      <!-- Columna Modelo -->
+      <ng-container matColumnDef="fecha_venta">
+        <th mat-header-cell *matHeaderCellDef>Fecha de la Venta</th>
+        <td mat-cell *matCellDef="let Sale">{{Sale.fecha_venta}}</td>
+      </ng-container>
+
+      <!-- Columna Modelo -->
+      <ng-container matColumnDef="total">
+        <th mat-header-cell *matHeaderCellDef>Total Pagado</th>
+        <td mat-cell *matCellDef="let Sale">{{Sale.total}} $</td>
+      </ng-container>
+  
+      <!-- Define las columnas que se mostrarán -->
+      <tr mat-header-row *matHeaderRowDef="['sale_id','numero_venta', 'cliente_id', 'fecha_venta', 'total']"></tr>
+      <tr mat-row *matRowDef="let row; columns: ['sale_id','numero_venta', 'cliente_id', 'fecha_venta', 'total'];"></tr>
+    </table>
+  </div>
