@@ -8,6 +8,8 @@ import { DatePipe } from '@angular/common';
 import { Router } from '@angular/router';
 import { Sale } from '../../Domain/sale';
 import { SaleService } from '../../services/sale.service';
+import { SaleDetail } from '../../Domain/saledetail';
+import { SaledetailService } from '../../services/saledetail.service';
 
 @Component({
   selector: 'app-crear-sale',
@@ -22,12 +24,24 @@ export class CrearSaleComponent {
   //Para buscar el cliente por cedula
   cliente: Cliente = new Cliente();
   clienteTn: Cliente | null = null;
+  //Para buscar cabecera por NumeroVenta
+  saleb: Sale = new Sale();
+  salebTn: Sale | null = null;
 
   //Para crear la cabecera factura
   sale: Sale = new Sale();
 
+  //Para crear el detalle de la venta
+  saledetail = new SaleDetail();
 
-  constructor(private productoService : ProductoService, private clienteService : ClienteService,private saleService:SaleService ,private datePipe: DatePipe){}
+  //Para actulizar stock despues de una venta
+  productovemta : Producto = new Producto();
+
+
+
+
+  constructor(private productoService : ProductoService, private saledetailService : SaledetailService,
+    private clienteService : ClienteService,private saleService:SaleService ,private datePipe: DatePipe){}
 
   buscarCliente() {
     if (this.cliente.cedula) {
@@ -71,23 +85,133 @@ export class CrearSaleComponent {
 
     this.saleService.save(formattedSale).subscribe({
       next: (response) => {
-        console.log('Promoción creada:', response);
+        console.log('Sale creada:', response);
         //this.order = new Order()
         //this.productoTn = null;
         //this.proveedorTn = null;
         //alert("Promoción creada exitosamente")
-        //this.showPedidoCreatedAlert();
+        this.showSaleCreatedAlert();
         //this.modificar();
       },
       error: (error) => {
-        console.error('Promoción creada:', error);
+        console.error('Sale creada:', error);
         //this.order = new Order()
         //this.productoTn = null;
         //this.proveedorTn = null;
-        //this.showPedidoCreatedAlert();
+        this.showSaleCreatedAlert();
+        this.buscarSale();
         //this.modificar();
       }
     });
   }
+
+  guardarSaleDetail(){
+    const cantidad: number = this.saledetail.cantidad ?? 0;
+    const precioUnitario: number = parseFloat(this.productoTn?.precioUnitario ?? '0');
+
+    const formattedDetail = {
+      ...this.saledetail,
+      sale_id: this.salebTn?.sale_id,
+      product_id: this.producto.product_id,
+      precio : cantidad * precioUnitario,
+    };
+
+    this.saledetailService.save(formattedDetail).subscribe({
+      next: (response) => {
+        console.log('Sale Detail creado:', response);
+        //this.order = new Order()
+        //this.productoTn = null;
+        //this.proveedorTn = null;
+        //alert("Promoción creada exitosamente")
+        //this.showSaleCreatedAlert();
+        //this.modificar();
+      },
+      error: (error) => {
+        console.error('Sale creada:', error);
+        this.actualizarStockVenta();
+        this.showSaleDetailCreatedAlert();
+        this.saledetail = new SaleDetail();
+        this.producto = new Producto();
+        this.productoTn = null;
+      }
+    });
+  }
+
+  actualizarStockVenta(){
+    console.log(this.productovemta)
+    this.productoService.updateStockProductoVenta(this.productovemta.product_id,this.productovemta).subscribe(data => {
+      console.log("Resultado WS SAVE", data);
+    });
+    this.productovemta = new Producto();
+  }
+
+  showSaleCreatedAlert() {
+    Swal.fire({
+      icon: 'success',
+      title: '¡Éxito!',
+      text: 'Cabecera acentada exitosamente.',
+      confirmButtonText: 'Aceptar'
+    });
+  }
+
+  showSaleDetailCreatedAlert() {
+    Swal.fire({
+      icon: 'success',
+      title: '¡Éxito!',
+      text: 'Detalle agregado exitosamente.',
+      confirmButtonText: 'Aceptar'
+    });
+  }
+
+  buscarProducto() {
+    if (this.producto.product_id) {
+
+      this.productoService.getProductoById(this.producto.product_id).subscribe(data => {
+        console.log("resultado WS save", data);
+        this.productoTn = data;
+        this.showProductoEncontrado();
+      },error => {
+        console.error('Error fetching product:', error);
+        this.productoTn = null;  // Limpia los campos si no se encuentra el producto
+        this.showProductoNoEncontrado();
+      });
+    }
+  }
+
+  showProductoEncontrado(){
+    Swal.fire({
+      icon: 'success',
+      title: '¡Éxito!',
+      text: 'Producto encontrado',
+      confirmButtonText: 'Aceptar'
+    });
+  }
+
+  showProductoNoEncontrado(){
+    Swal.fire({
+      icon: 'error',
+      title: '¡Qué mal!',
+      text: 'Producto no encontrado',
+      confirmButtonText: 'Aceptar'
+    });
+  }
+
+
+  buscarSale() {
+    if (this.saleb.numero_venta) {
+
+      this.saleService.getSaleByNumeroVenta(this.saleb.numero_venta).subscribe(data => {
+        console.log("resultado WS save", data);
+        this.salebTn = data;
+        //this.showProductoEncontrado();
+      },error => {
+        console.error('Error fetching product:', error);
+        this.productoTn = null;  // Limpia los campos si no se encuentra el producto
+        //this.showProductoNoEncontrado();
+      });
+    }
+  }
+
+
   
 }

@@ -39,5 +39,9 @@ export class ProductoService {
     return this.http.put(url, producto);
   }
 
+  updateStockProductoVenta(id: number , producto:Producto){
+    const url = `http://localhost:8001/product/update_productV2/${id}`;
+    return this.http.put(url, producto);
+  }
 
 }

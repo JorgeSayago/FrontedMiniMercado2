@@ -5,7 +5,7 @@
     <div class="form-row">
       <mat-form-field appearance="fill" class="form-field">
         <mat-label>Numero Venta</mat-label>
-        <input matInput placeholder="Ingrese Numero Venta" [(ngModel)]="sale.numero_venta">
+        <input matInput placeholder="Ingrese Numero Venta" [(ngModel)]="sale.numero_venta" [(ngModel)]="saleb.numero_venta">
       </mat-form-field>
       <mat-form-field appearance="fill" class="form-field">
         <mat-label>Fecha de Venta</mat-label>
@@ -40,35 +40,35 @@
     <div class="form-row">
       <mat-form-field appearance="fill" class="form-field">
         <mat-label>ID_Cabecera</mat-label>
-        <input matInput placeholder="ID_Cabecera">
+        <input matInput placeholder="ID_Cabecera" [value]="salebTn?.sale_id" readonly>
       </mat-form-field>
       <mat-form-field appearance="fill" class="form-field">
         <mat-label>ID del Producto</mat-label>
-        <input matInput placeholder="Ingrese ID del Producto">
+        <input matInput placeholder="Ingrese ID del Producto" [(ngModel)]="producto.product_id" [(ngModel)]="productovemta.product_id">
       </mat-form-field>
-      <button mat-raised-button color="primary">Buscar</button>
+      <button mat-raised-button color="primary" (click)="buscarProducto()">Buscar</button>
     </div>
     <div class="form-row">
       <mat-form-field appearance="fill" class="form-field">
         <mat-label>Nombre del Producto</mat-label>
-        <input matInput placeholder="Nombre del Producto" disabled>
+        <input matInput placeholder="Nombre del Producto" [value]="productoTn?.nombre"  readonly>
       </mat-form-field>
       
       <mat-form-field appearance="fill" class="form-field">
         <mat-label>Stock del Producto</mat-label>
-        <input matInput placeholder="Stock del Producto" disabled>
+        <input matInput placeholder="Stock del Producto" [value]="productoTn?.stock" readonly>
       </mat-form-field>
 
       <mat-form-field appearance="fill" class="form-field">
         <mat-label>Precio Unitario</mat-label>
-        <input matInput placeholder="Stock del Producto" disabled>
+        <input matInput placeholder="Precio Unitario del Producto" [value]="productoTn?.precioUnitario" readonly>
       </mat-form-field>
 
       <mat-form-field appearance="fill" class="form-field">
         <mat-label>Cantidad</mat-label>
-        <input matInput placeholder="Cantidad">
+        <input matInput placeholder="Cantidad" [(ngModel)]="saledetail.cantidad" [(ngModel)]="productovemta.stock">
       </mat-form-field>
-      <button mat-raised-button color="primary">Acentar Detalle</button>
+      <button mat-raised-button color="primary" (click)="guardarSaleDetail()">Acentar Detalle</button>
     </div>
     <h3>Valor a Pagar</h3>
     <div class="form-row">
