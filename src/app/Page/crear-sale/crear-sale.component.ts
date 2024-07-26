@@ -5,11 +5,12 @@ import { Cliente } from '../../Domain/cliente';
 import { ClienteService } from '../../services/cliente.service';
 import Swal from 'sweetalert2';
 import { DatePipe } from '@angular/common';
-import { Router } from '@angular/router';
+import { Router, NavigationExtras } from '@angular/router';
 import { Sale } from '../../Domain/sale';
 import { SaleService } from '../../services/sale.service';
 import { SaleDetail } from '../../Domain/saledetail';
 import { SaledetailService } from '../../services/saledetail.service';
+
 
 @Component({
   selector: 'app-crear-sale',
@@ -37,8 +38,8 @@ export class CrearSaleComponent {
   //Para actulizar stock despues de una venta
   productovemta : Producto = new Producto();
 
-
-
+  //Para listar los detalles
+  listadoDetallesWS:any;
 
   constructor(private productoService : ProductoService, private saledetailService : SaledetailService,
     private clienteService : ClienteService,private saleService:SaleService ,private datePipe: DatePipe){}
